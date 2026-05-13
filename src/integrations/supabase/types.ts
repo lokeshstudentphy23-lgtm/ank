@@ -14,7 +14,114 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      inquiries: {
+        Row: {
+          created_at: string
+          destination: string | null
+          email: string
+          full_name: string
+          id: string
+          message: string | null
+          phone: string
+          travel_date: string | null
+          travel_type: string | null
+          travellers: number | null
+        }
+        Insert: {
+          created_at?: string
+          destination?: string | null
+          email: string
+          full_name: string
+          id?: string
+          message?: string | null
+          phone: string
+          travel_date?: string | null
+          travel_type?: string | null
+          travellers?: number | null
+        }
+        Update: {
+          created_at?: string
+          destination?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string | null
+          phone?: string
+          travel_date?: string | null
+          travel_type?: string | null
+          travellers?: number | null
+        }
+        Relationships: []
+      }
+      package_requests: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string | null
+          package_id: string | null
+          package_name: string | null
+          phone: string
+          travel_date: string | null
+          travellers: number | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message?: string | null
+          package_id?: string | null
+          package_name?: string | null
+          phone: string
+          travel_date?: string | null
+          travellers?: number | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string | null
+          package_id?: string | null
+          package_name?: string | null
+          phone?: string
+          travel_date?: string | null
+          travellers?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
