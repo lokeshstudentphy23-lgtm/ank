@@ -1,0 +1,94 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Placeholder } from "@/components/site/Placeholder";
+import { Award, Bus, MapPin, ShieldCheck, Heart, Users, Sparkles } from "lucide-react";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About Us | [COMPANY NAME] — 30+ Years of Travel Excellence in Varanasi, UP & Nepal" },
+      { name: "description", content: "Learn about [COMPANY NAME], a Varanasi-based travel operator with 30+ years of experience in pilgrimages, group tours, and bus hire across India and Nepal." },
+      { name: "keywords", content: "about Varanasi travel company, pilgrimage operator UP, group tour company Varanasi, bus operator Nepal" },
+      { property: "og:title", content: "About [COMPANY NAME]" },
+      { property: "og:description", content: "30+ years of heritage in pilgrimage and group travel from Varanasi." },
+      { property: "og:url", content: "/about" },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+  }),
+  component: About,
+});
+
+function About() {
+  return (
+    <>
+      <section className="bg-navy text-navy-foreground">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <p className="text-saffron font-semibold tracking-wide uppercase text-sm">About Us</p>
+          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold">Three decades. One devotion: your journey.</h1>
+          <p className="mt-4 max-w-3xl opacity-90">
+            Born in the lanes of Varanasi, we have spent 30+ years guiding pilgrims and travellers across India and Nepal.
+            From the ghats of Kashi to the temples of Pashupatinath, every itinerary is shaped by experience, run on our
+            own fleet of 30+ buses, and powered by a team that treats every traveller as family.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-y bg-secondary/60">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {[["30+","Years"],["30+","Buses"],["1000+","Trips"],["All India","& Nepal"]].map(([k,v]) => (
+            <div key={v}><div className="text-3xl font-bold text-navy">{k}</div><div className="text-xs uppercase tracking-wide text-muted-foreground mt-1">{v}</div></div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold">Our Fleet</h2>
+        <p className="text-muted-foreground mt-2 max-w-2xl">Owned, maintained, and GPS-tracked — every bus is ready for pilgrimages, school tours, weddings, and corporate trips. See full hire details on the <Link to="/bus-hire" className="text-saffron hover:underline">Bus Hire</Link> page.</p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {[1,2,3,4,5,6].map(i => (
+            <figure key={i}>
+              <Placeholder label={`BUS PHOTO ${i}`} alt={`Bus ${i} from owned fleet for Varanasi to Nepal pilgrimage tours`} />
+              <figcaption className="mt-2 text-sm text-muted-foreground">[CAPTION SLOT — Bus {i}]</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-secondary/60">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-3xl font-bold text-center">Why Choose Us</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-4">
+            {[
+              { icon: Award, t: "Experienced Team", d: "30+ years guiding pilgrimages and group travel." },
+              { icon: Bus, t: "Own Fleet", d: "30+ buses, no third-party dependence." },
+              { icon: MapPin, t: "All-India Coverage", d: "Pan-India and Nepal routes covered." },
+              { icon: Users, t: "Trusted by Thousands", d: "1000+ trips and counting." },
+            ].map(({ icon: Icon, t, d }) => (
+              <div key={t} className="bg-card rounded-xl p-6 card-lift">
+                <Icon className="h-8 w-8 text-saffron" />
+                <h3 className="mt-3 font-bold text-navy">{t}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-3xl font-bold text-center">Our Values</h2>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: ShieldCheck, t: "Safety" },
+            { icon: Award, t: "Reliability" },
+            { icon: Sparkles, t: "Comfort" },
+            { icon: Heart, t: "Devotion" },
+          ].map(({ icon: Icon, t }) => (
+            <div key={t} className="text-center p-6">
+              <Icon className="h-10 w-10 text-saffron mx-auto" />
+              <h3 className="mt-3 font-bold">{t}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
