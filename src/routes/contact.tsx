@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { COMPANY } from "@/lib/site";
+import { submitInquiry } from "@/lib/submissions";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
@@ -25,14 +26,31 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
+    try {
+      await submitInquiry({
+        full_name: String(fd.get("name") ?? "").trim(),
+        email: String(fd.get("email") ?? "").trim(),
+        phone: String(fd.get("phone") ?? "").trim(),
+        travel_type: (fd.get("type") as string) || null,
+        destination: (fd.get("dest") as string) || null,
+        travel_date: (fd.get("date") as string) || null,
+        travellers: fd.get("travellers") ? Number(fd.get("travellers")) : null,
+        message: (fd.get("msg") as string) || null,
+      });
+      form.reset();
       toast.success("Enquiry sent!", { description: "Our team will reach out within 2–4 hours." });
-    }, 600);
+    } catch (err) {
+      toast.error("Could not send enquiry", {
+        description: err instanceof Error ? err.message : "Please try again or call us directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const field = "mt-1 w-full rounded-md border bg-card px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-saffron";
@@ -52,13 +70,13 @@ function Contact() {
         <form onSubmit={onSubmit} className="bg-card rounded-2xl p-6 sm:p-8 border space-y-4 card-lift">
           <h2 className="text-2xl font-bold">Send an Enquiry</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div><label className={label} htmlFor="name">Full Name</label><input id="name" required className={field} /></div>
-            <div><label className={label} htmlFor="phone">Phone Number</label><input id="phone" required type="tel" className={field} /></div>
+            <div><label className={label} htmlFor="name">Full Name</label><input id="name" name="name" required maxLength={100} className={field} /></div>
+            <div><label className={label} htmlFor="phone">Phone Number</label><input id="phone" name="phone" required type="tel" maxLength={20} className={field} /></div>
           </div>
-          <div><label className={label} htmlFor="email">Email Address</label><input id="email" required type="email" className={field} /></div>
+          <div><label className={label} htmlFor="email">Email Address</label><input id="email" name="email" required type="email" maxLength={150} className={field} /></div>
           <div>
             <label className={label} htmlFor="type">Type of Travel</label>
-            <select id="type" required className={field} defaultValue="">
+            <select id="type" name="type" required className={field} defaultValue="">
               <option value="" disabled>Select...</option>
               <option>Personal / Family Trip</option>
               <option>Pilgrimage / Religious Tour</option>
@@ -70,11 +88,11 @@ function Contact() {
             </select>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div><label className={label} htmlFor="dest">Travel Destination</label><input id="dest" className={field} placeholder="e.g. Varanasi, Kathmandu" /></div>
-            <div><label className={label} htmlFor="date">Travel Date</label><input id="date" type="date" className={field} /></div>
+            <div><label className={label} htmlFor="dest">Travel Destination</label><input id="dest" name="dest" maxLength={150} className={field} placeholder="e.g. Varanasi, Kathmandu" /></div>
+            <div><label className={label} htmlFor="date">Travel Date</label><input id="date" name="date" type="date" className={field} /></div>
           </div>
-          <div><label className={label} htmlFor="travellers">Number of Travellers</label><input id="travellers" type="number" min={1} className={field} /></div>
-          <div><label className={label} htmlFor="msg">Message / Special Requirements</label><textarea id="msg" rows={4} className={field} /></div>
+          <div><label className={label} htmlFor="travellers">Number of Travellers</label><input id="travellers" name="travellers" type="number" min={1} max={500} className={field} /></div>
+          <div><label className={label} htmlFor="msg">Message / Special Requirements</label><textarea id="msg" name="msg" rows={4} maxLength={2000} className={field} /></div>
           <button disabled={submitting} className="w-full rounded-md bg-saffron px-5 py-3 text-sm font-semibold text-saffron-foreground hover:brightness-95 disabled:opacity-60">
             {submitting ? "Sending..." : "Send Enquiry"}
           </button>
