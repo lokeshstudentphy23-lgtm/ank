@@ -7,10 +7,10 @@ import busInterior2 from "@/assets/bus-interior-2.jpeg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | [COMPANY NAME] — 30+ Years of Travel Excellence in Varanasi, UP & Nepal" },
-      { name: "description", content: "Learn about [COMPANY NAME], a Varanasi-based travel operator with 30+ years of experience in pilgrimages, group tours, and bus hire across India and Nepal." },
+      { title: "About Us | Aarya Neelkamal Tours and Travels — 30+ Years of Travel Excellence in Varanasi, UP & Nepal" },
+      { name: "description", content: "Learn about Aarya Neelkamal Tours and Travels, a Varanasi-based travel operator with 30+ years of experience in pilgrimages, group tours, and bus hire across India and Nepal." },
       { name: "keywords", content: "about Varanasi travel company, pilgrimage operator UP, group tour company Varanasi, bus operator Nepal" },
-      { property: "og:title", content: "About [COMPANY NAME]" },
+      { property: "og:title", content: "About Aarya Neelkamal Tours and Travels" },
       { property: "og:description", content: "30+ years of heritage in pilgrimage and group travel from Varanasi." },
       { property: "og:url", content: "/about" },
     ],

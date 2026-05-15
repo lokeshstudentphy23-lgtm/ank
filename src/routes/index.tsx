@@ -10,10 +10,10 @@ import busInterior2 from "@/assets/bus-interior-2.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "[COMPANY NAME] | Pilgrimage & Group Tours from Varanasi | 30+ Years Trusted Travel" },
+      { title: "Aarya Neelkamal Tours and Travels | Pilgrimage & Group Tours from Varanasi | 30+ Years Trusted Travel" },
       { name: "description", content: "Varanasi-based pilgrimage tour operator with 30+ years of experience. Curated tours to Kashi, Ayodhya, Prayagraj, Gaya, Kathmandu & Pokhara with our own fleet of 30+ buses." },
       { name: "keywords", content: "pilgrimage tours Varanasi, Kashi tour package, Ayodhya tour, Nepal tour from Varanasi, bus hire Varanasi, group travel UP" },
-      { property: "og:title", content: "[COMPANY NAME] — Pilgrimage & Group Tours from Varanasi" },
+      { property: "og:title", content: "Aarya Neelkamal Tours and Travels — Pilgrimage & Group Tours from Varanasi" },
       { property: "og:description", content: "30+ years of trusted pilgrimage and group travel across India and Nepal." },
       { property: "og:url", content: "/" },
     ],

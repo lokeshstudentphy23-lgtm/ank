@@ -8,10 +8,10 @@ import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Youtube } from
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact [COMPANY NAME] | Book Pilgrimage Tours & Bus Hire from Varanasi" },
-      { name: "description", content: "Contact [COMPANY NAME] in Varanasi to book pilgrimage tours, group travel and bus hire. Call, WhatsApp, or send an enquiry — we respond in 2–4 hours." },
+      { title: "Contact Aarya Neelkamal Tours and Travels | Book Pilgrimage Tours & Bus Hire from Varanasi" },
+      { name: "description", content: "Contact Aarya Neelkamal Tours and Travels in Varanasi to book pilgrimage tours, group travel and bus hire. Call, WhatsApp, or send an enquiry — we respond in 2–4 hours." },
       { name: "keywords", content: "contact Varanasi travel agent, book pilgrimage Varanasi, bus hire enquiry, Nepal tour booking" },
-      { property: "og:title", content: "Contact [COMPANY NAME]" },
+      { property: "og:title", content: "Contact Aarya Neelkamal Tours and Travels" },
       { property: "og:description", content: "Reach our Varanasi team for tours and bus hire." },
       { property: "og:url", content: "/contact" },
     ],
