@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Placeholder } from "@/components/site/Placeholder";
+import { Hero } from "@/components/site/Hero";
 import { PackageCard } from "@/components/site/PackageCard";
-import { PACKAGES, COMPANY, CITIES } from "@/lib/site";
+import { PACKAGES, COMPANY, CITIES, HERO_IMAGES } from "@/lib/site";
 import { Bus, Award, Users, MapPin, Mountain, Landmark, Sparkles, Flame } from "lucide-react";
 import busExterior from "@/assets/bus-exterior.jpeg";
 import busInterior1 from "@/assets/bus-interior-1.jpeg";
@@ -45,27 +45,17 @@ const circuits = [
 function Home() {
   return (
     <>
-      <section className="relative overflow-hidden">
-        <Placeholder aspect="aspect-[16/9] md:aspect-[21/9]" label="HERO BANNER — Varanasi Ghats at Sunrise" alt="Varanasi Ganga ghats sunrise pilgrimage tour banner" className="!rounded-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/60 to-transparent" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl text-navy-foreground">
-              <p className="text-saffron font-semibold tracking-wide uppercase text-sm">From the heart of Kashi</p>
-              <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-                Sacred journeys, <span className="text-saffron">crafted with devotion.</span>
-              </h1>
-              <p className="mt-4 text-lg opacity-90">
-                Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience and our own fleet of 30+ buses.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/packages" className="rounded-md bg-saffron text-saffron-foreground px-5 py-3 text-sm font-semibold hover:brightness-95">Explore Packages</Link>
-                <Link to="/contact" className="rounded-md border border-white/30 bg-white/10 backdrop-blur px-5 py-3 text-sm font-semibold hover:bg-white/20">Plan Your Trip</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        image={HERO_IMAGES.home}
+        imageAlt="Varanasi ghats at sunrise — pilgrimage tours"
+        eyebrow="From the heart of Kashi"
+        height="lg"
+        title={<>Sacred journeys,<br /><span className="text-saffron">crafted with devotion.</span></>}
+        subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience and our own fleet of 30+ buses."
+      >
+        <Link to="/packages" className="rounded-md bg-saffron text-saffron-foreground px-6 py-3 text-sm font-semibold hover:brightness-95 shadow-lg shadow-saffron/30">Explore Packages</Link>
+        <Link to="/plan-trip" className="rounded-md border border-white/40 bg-white/10 backdrop-blur px-6 py-3 text-sm font-semibold text-white hover:bg-white/20">Plan Your Trip</Link>
+      </Hero>
 
       <section className="bg-navy text-navy-foreground" aria-label="Trust indicators">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
