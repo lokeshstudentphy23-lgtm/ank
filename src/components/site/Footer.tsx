@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { COMPANY } from "@/lib/site";
 import { Facebook, Instagram, Youtube, MessageCircle } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const destinations = ["Varanasi","Ayodhya","Prayagraj","Gaya","Kathmandu","Pokhara","Naimisharanya","Janakpur"];
 
@@ -10,11 +11,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-10 w-10 rounded-md bg-saffron text-saffron-foreground flex items-center justify-center text-[10px] font-bold">LOGO</div>
-            <span className="font-bold">{COMPANY.name}</span>
+            <img src={logo} alt={`${COMPANY.name} logo`} className="h-11 w-11 rounded-md object-cover" />
+            <span className="font-bold leading-tight">{COMPANY.name}</span>
           </div>
           <p className="text-sm opacity-80">{COMPANY.tagline}</p>
-          <p className="mt-3 text-xs opacity-70">30+ Buses | All India & Nepal | Est. {COMPANY.foundingYear}</p>
+          <p className="mt-3 text-xs opacity-70">All India & Nepal Pilgrimage Specialists | Est. {COMPANY.foundingYear}</p>
         </div>
         <div>
           <h3 className="text-sm font-semibold mb-3 text-saffron">Quick Links</h3>
@@ -55,8 +56,8 @@ export function Footer() {
           <p className="text-xs opacity-80 leading-relaxed">
             {COMPANY.name} is a Varanasi-based pilgrimage and group tour operator with 30+ years of experience.
             We offer curated pilgrimage packages to Varanasi, Ayodhya, Prayagraj, Gaya, Naimisharanya, Janakpur,
-            Kathmandu, and Pokhara. Our own fleet of 30+ GPS-tracked buses covers all India and Nepal routes —
-            ideal for family pilgrimages, school tours, corporate outings, and group travel.
+            Kathmandu, and Pokhara. With an owned fleet covering all India and Nepal routes, we are the trusted
+            choice for family pilgrimages, school tours, corporate outings, and group travel.
           </p>
           <p className="mt-4 text-xs opacity-60">© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
         </div>
