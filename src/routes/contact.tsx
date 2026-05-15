@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
-import { COMPANY } from "@/lib/site";
+import { COMPANY, HERO_IMAGES } from "@/lib/site";
+import { Hero } from "@/components/site/Hero";
 import { submitInquiry } from "@/lib/submissions";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 
@@ -58,13 +59,14 @@ function Contact() {
 
   return (
     <>
-      <section className="bg-navy text-navy-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <p className="text-saffron font-semibold uppercase tracking-wide text-sm">Contact</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold">Plan your journey with us</h1>
-          <p className="mt-3 max-w-2xl opacity-90">Tell us where you'd like to go. We typically respond within 2–4 hours.</p>
-        </div>
-      </section>
+      <Hero
+        image={HERO_IMAGES.contact}
+        imageAlt="Travel planning"
+        eyebrow="Contact"
+        height="sm"
+        title="Plan your journey with us"
+        subtitle="Tell us where you'd like to go. We typically respond within 2–4 hours."
+      />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 lg:grid-cols-2">
         <form onSubmit={onSubmit} className="bg-card rounded-2xl p-6 sm:p-8 border space-y-4 card-lift">
