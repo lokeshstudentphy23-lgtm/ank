@@ -1,14 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Placeholder } from "@/components/site/Placeholder";
 import { Award, Bus, MapPin, ShieldCheck, Heart, Users, Sparkles } from "lucide-react";
+import busExterior from "@/assets/bus-exterior.jpeg";
+import busInterior1 from "@/assets/bus-interior-1.jpeg";
+import busInterior2 from "@/assets/bus-interior-2.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | [COMPANY NAME] — 30+ Years of Travel Excellence in Varanasi, UP & Nepal" },
-      { name: "description", content: "Learn about [COMPANY NAME], a Varanasi-based travel operator with 30+ years of experience in pilgrimages, group tours, and bus hire across India and Nepal." },
+      { title: "About Us | Aarya Neelkamal Tours and Travels — 30+ Years of Travel Excellence in Varanasi, UP & Nepal" },
+      { name: "description", content: "Learn about Aarya Neelkamal Tours and Travels, a Varanasi-based travel operator with 30+ years of experience in pilgrimages, group tours, and bus hire across India and Nepal." },
       { name: "keywords", content: "about Varanasi travel company, pilgrimage operator UP, group tour company Varanasi, bus operator Nepal" },
-      { property: "og:title", content: "About [COMPANY NAME]" },
+      { property: "og:title", content: "About Aarya Neelkamal Tours and Travels" },
       { property: "og:description", content: "30+ years of heritage in pilgrimage and group travel from Varanasi." },
       { property: "og:url", content: "/about" },
     ],
@@ -44,10 +46,17 @@ function About() {
         <h2 className="text-3xl font-bold">Our Fleet</h2>
         <p className="text-muted-foreground mt-2 max-w-2xl">Owned, maintained, and GPS-tracked — every bus is ready for pilgrimages, school tours, weddings, and corporate trips. See full hire details on the <Link to="/bus-hire" className="text-saffron hover:underline">Bus Hire</Link> page.</p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {[1,2,3,4,5,6].map(i => (
-            <figure key={i}>
-              <Placeholder label={`BUS PHOTO ${i}`} alt={`Bus ${i} from owned fleet for Varanasi to Nepal pilgrimage tours`} />
-              <figcaption className="mt-2 text-sm text-muted-foreground">[CAPTION SLOT — Bus {i}]</figcaption>
+          {[
+            { src: busExterior, caption: "Neelkamal — All India Tourist Permit Coach", alt: "Aarya Neelkamal tourist coach exterior with All India Tourist Permit" },
+            { src: busInterior1, caption: "Premium AARYA branded interior with mood lighting", alt: "Aarya bus interior with branded headrests and ambient lighting" },
+            { src: busInterior2, caption: "Spacious cabin for long pilgrimage circuits", alt: "Spacious bus interior for long-distance pilgrimage tours" },
+            { src: busExterior, caption: "Tourist-permitted for pan-India & Nepal", alt: "Tourist permit bus for Varanasi to Nepal pilgrimage tours" },
+            { src: busInterior1, caption: "Comfort seating for group travel", alt: "Comfortable group travel bus interior" },
+            { src: busInterior2, caption: "Well-lit, ventilated coach", alt: "Well-lit and ventilated coach interior" },
+          ].map((b, i) => (
+            <figure key={i} className="card-lift rounded-xl overflow-hidden bg-card border">
+              <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+              <figcaption className="p-3 text-sm text-muted-foreground">{b.caption}</figcaption>
             </figure>
           ))}
         </div>

@@ -47,7 +47,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "geo.position", content: "25.3176;82.9739" },
       { name: "ICBM", content: "25.3176, 82.9739" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "[COMPANY NAME]" },
+      { property: "og:site_name", content: "Aarya Neelkamal Tours and Travels" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

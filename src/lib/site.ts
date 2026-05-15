@@ -1,13 +1,19 @@
 export const COMPANY = {
-  name: "[COMPANY NAME]",
+  name: "Aarya Neelkamal Tours and Travels",
+  shortName: "ANK Tours and Travels",
   tagline: "30+ Years of Trusted Travel",
-  phone: "[PHONE NUMBER]",
-  whatsapp: "[WHATSAPP NUMBER]",
-  whatsappLink: "https://wa.me/91XXXXXXXXXX?text=Hi%2C+I%27d+like+to+enquire+about+a+tour%2Fbus+hire.",
-  email: "[EMAIL]",
-  address: "[ADDRESS — Varanasi, Uttar Pradesh, India]",
-  foundingYear: "[YEAR]",
+  phone: "+91 73983 06179",
+  whatsapp: "+91 73983 06179",
+  whatsappNumber: "917398306179",
+  whatsappLink: "https://wa.me/917398306179?text=" + encodeURIComponent("Hi, I'd like to enquire about a tour/bus hire."),
+  email: "aaryanktravels@gmail.com",
+  address: "Near Essar Petrol Pump, Kerakatpur, Lohta, Varanasi, Uttar Pradesh, India",
+  foundingYear: "1995",
 };
+
+export function buildWhatsAppLink(message: string) {
+  return `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
 
 export type Pkg = {
   id: string; name: string; duration: string; price: string;

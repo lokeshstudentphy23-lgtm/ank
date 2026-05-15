@@ -3,14 +3,17 @@ import { Placeholder } from "@/components/site/Placeholder";
 import { PackageCard } from "@/components/site/PackageCard";
 import { PACKAGES, COMPANY, CITIES } from "@/lib/site";
 import { Bus, Award, Users, MapPin, Mountain, Landmark, Sparkles, Flame } from "lucide-react";
+import busExterior from "@/assets/bus-exterior.jpeg";
+import busInterior1 from "@/assets/bus-interior-1.jpeg";
+import busInterior2 from "@/assets/bus-interior-2.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "[COMPANY NAME] | Pilgrimage & Group Tours from Varanasi | 30+ Years Trusted Travel" },
+      { title: "Aarya Neelkamal Tours and Travels | Pilgrimage & Group Tours from Varanasi | 30+ Years Trusted Travel" },
       { name: "description", content: "Varanasi-based pilgrimage tour operator with 30+ years of experience. Curated tours to Kashi, Ayodhya, Prayagraj, Gaya, Kathmandu & Pokhara with our own fleet of 30+ buses." },
       { name: "keywords", content: "pilgrimage tours Varanasi, Kashi tour package, Ayodhya tour, Nepal tour from Varanasi, bus hire Varanasi, group travel UP" },
-      { property: "og:title", content: "[COMPANY NAME] — Pilgrimage & Group Tours from Varanasi" },
+      { property: "og:title", content: "Aarya Neelkamal Tours and Travels — Pilgrimage & Group Tours from Varanasi" },
       { property: "og:description", content: "30+ years of trusted pilgrimage and group travel across India and Nepal." },
       { property: "og:url", content: "/" },
     ],
@@ -142,14 +145,18 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center">Our Fleet — 30+ Buses, Zero Compromise</h2>
+        <h2 className="text-3xl font-bold text-center">Our Fleet — Comfort, Safety, Zero Compromise</h2>
         <p className="text-center text-muted-foreground mt-2">A glimpse of our owned fleet. Read more on the <Link to="/about" className="text-saffron hover:underline">About</Link> page or <Link to="/bus-hire" className="text-saffron hover:underline">hire a bus</Link>.</p>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[1,2,3].map(i => (
-            <div key={i}>
-              <Placeholder label={`BUS PHOTO ${i}`} alt={`Owned bus number ${i} for pilgrimage and group tours from Varanasi`} />
-              <p className="mt-2 text-sm text-center text-muted-foreground">Our Fleet — 30+ Buses, Zero Compromise</p>
-            </div>
+          {[
+            { src: busExterior, caption: "All India Tourist Permit Coach", alt: "Neelkamal All India Tourist Permit coach exterior" },
+            { src: busInterior1, caption: "Premium Branded Interior", alt: "Aarya branded bus interior with ambient lighting" },
+            { src: busInterior2, caption: "Spacious Group Cabin", alt: "Spacious bus interior for pilgrimage groups" },
+          ].map((b, i) => (
+            <figure key={i} className="card-lift rounded-xl overflow-hidden bg-card border">
+              <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[5/3] w-full object-cover" />
+              <figcaption className="p-3 text-sm text-center text-muted-foreground">{b.caption}</figcaption>
+            </figure>
           ))}
         </div>
       </section>

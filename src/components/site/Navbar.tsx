@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
+import { COMPANY } from "@/lib/site";
 
 const links = [
   { to: "/", label: "Home" },
@@ -16,8 +18,10 @@ export function Navbar() {
     <header className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
         <Link to="/" className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-md placeholder-gradient flex items-center justify-center text-[10px] font-bold">LOGO</div>
-          <span className="font-bold text-navy hidden sm:inline">[COMPANY NAME]</span>
+          <img src={logo} alt={`${COMPANY.name} logo`} className="h-11 w-11 rounded-md object-cover" />
+          <span className="font-bold text-navy hidden sm:inline leading-tight text-sm md:text-base">
+            {COMPANY.shortName}
+          </span>
         </Link>
         <ul className="hidden md:flex items-center gap-8">
           {links.map(l => (

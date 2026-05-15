@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Bus, ShieldCheck, Wifi, MapPin, Clock, FileText, CheckCircle2 } from "lucide-react";
-import { Placeholder } from "@/components/site/Placeholder";
 import { COMPANY } from "@/lib/site";
+import busExterior from "@/assets/bus-exterior.jpeg";
+import busInterior1 from "@/assets/bus-interior-1.jpeg";
+import busInterior2 from "@/assets/bus-interior-2.jpeg";
 
 export const Route = createFileRoute("/bus-hire")({
   head: () => ({
@@ -28,11 +30,11 @@ export const Route = createFileRoute("/bus-hire")({
 });
 
 const fleet = [
-  { name: "Mini Bus", seats: "12–20 seats", lines: ["Non-AC: from ₹3,500/day or ₹18/km", "AC: from ₹5,000/day or ₹25/km"] },
-  { name: "Medium Bus", seats: "21–32 seats", lines: ["Non-AC: from ₹4,500/day or ₹22/km", "AC: from ₹6,200/day or ₹32/km"] },
-  { name: "Large Bus", seats: "33–45 seats", lines: ["Non-AC: from ₹5,500/day", "AC: from ₹7,800/day", "Semi-Sleeper: from ₹9,800/day"] },
-  { name: "Luxury Coach", seats: "46–54 seats", lines: ["AC: from ₹11,000/day", "Semi-Sleeper: from ₹13,500/day"] },
-  { name: "Volvo / Super Luxury", seats: "55+ seats", lines: ["Semi-Sleeper: from ₹17,000/day", "Luxury: from ₹22,000/day"] },
+  { name: "Mini Bus", seats: "12–20 seats", img: busInterior2, lines: ["Non-AC: from ₹3,500/day or ₹18/km", "AC: from ₹5,000/day or ₹25/km"] },
+  { name: "Medium Bus", seats: "21–32 seats", img: busInterior1, lines: ["Non-AC: from ₹4,500/day or ₹22/km", "AC: from ₹6,200/day or ₹32/km"] },
+  { name: "Large Bus", seats: "33–45 seats", img: busExterior, lines: ["Non-AC: from ₹5,500/day", "AC: from ₹7,800/day", "Semi-Sleeper: from ₹9,800/day"] },
+  { name: "Luxury Coach", seats: "46–54 seats", img: busInterior1, lines: ["AC: from ₹11,000/day", "Semi-Sleeper: from ₹13,500/day"] },
+  { name: "Volvo / Super Luxury", seats: "55+ seats", img: busExterior, lines: ["Semi-Sleeper: from ₹17,000/day", "Luxury: from ₹22,000/day"] },
 ];
 
 const routes = [
@@ -62,7 +64,7 @@ function BusHire() {
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {fleet.map(f => (
             <article key={f.name} className="bg-card rounded-xl overflow-hidden card-lift">
-              <Placeholder aspect="aspect-[5/3]" label={`BUS PHOTO — ${f.name}`} alt={`${f.name} for hire from Varanasi for pilgrimage and group tours`} />
+              <img src={f.img} alt={`${f.name} for hire from Varanasi for pilgrimage and group tours`} loading="lazy" className="aspect-[5/3] w-full object-cover" />
               <div className="p-5">
                 <h3 className="text-lg font-bold text-navy">{f.name}</h3>
                 <p className="text-sm text-muted-foreground">{f.seats}</p>

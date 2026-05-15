@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Placeholder } from "./Placeholder";
-import type { Pkg } from "@/lib/site";
-import { Clock, IndianRupee } from "lucide-react";
+import { buildWhatsAppLink, type Pkg } from "@/lib/site";
+import { Clock, IndianRupee, MessageCircle } from "lucide-react";
 
 const tagColor = (tag: string) => {
   const t = tag.toLowerCase();
@@ -31,9 +31,20 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
         <ul className="mt-3 space-y-1 text-sm text-foreground/80 flex-1">
           {pkg.highlights.slice(0,3).map(h => <li key={h}>• {h}</li>)}
         </ul>
-        <Link to="/contact" className="mt-4 inline-flex justify-center items-center rounded-md bg-navy text-navy-foreground px-4 py-2 text-sm font-semibold hover:bg-navy/90 transition">
-          Enquire Now
-        </Link>
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <Link to="/contact" className="inline-flex justify-center items-center rounded-md bg-navy text-navy-foreground px-3 py-2 text-sm font-semibold hover:bg-navy/90 transition">
+            Enquire
+          </Link>
+          <a
+            href={buildWhatsAppLink(`Hi, I am interested in the ${pkg.name} package. Please share details.`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Chat on WhatsApp about ${pkg.name}`}
+            className="inline-flex justify-center items-center gap-1.5 rounded-md bg-[#25D366] text-white px-3 py-2 text-sm font-semibold hover:brightness-95 transition"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+        </div>
       </div>
     </article>
   );
