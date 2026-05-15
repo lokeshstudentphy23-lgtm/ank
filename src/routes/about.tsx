@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, Bus, MapPin, ShieldCheck, Heart, Users, Sparkles } from "lucide-react";
+import { Hero } from "@/components/site/Hero";
+import { HERO_IMAGES } from "@/lib/site";
 import busExterior from "@/assets/bus-exterior.jpeg";
 import busInterior1 from "@/assets/bus-interior-1.jpeg";
 import busInterior2 from "@/assets/bus-interior-2.jpeg";
@@ -22,17 +24,13 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <>
-      <section className="bg-navy text-navy-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <p className="text-saffron font-semibold tracking-wide uppercase text-sm">About Us</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold">Three decades. One devotion: your journey.</h1>
-          <p className="mt-4 max-w-3xl opacity-90">
-            Born in the lanes of Varanasi, we have spent 30+ years guiding pilgrims and travellers across India and Nepal.
-            From the ghats of Kashi to the temples of Pashupatinath, every itinerary is shaped by experience, run on our
-            own fleet of 30+ buses, and powered by a team that treats every traveller as family.
-          </p>
-        </div>
-      </section>
+      <Hero
+        image={HERO_IMAGES.about}
+        imageAlt="Sacred temple architecture"
+        eyebrow="About Us"
+        title={<>Three decades.<br />One devotion: your journey.</>}
+        subtitle="Born in the lanes of Varanasi, we have spent 30+ years guiding pilgrims and travellers across India and Nepal — from the ghats of Kashi to the temples of Pashupatinath."
+      />
 
       <section className="border-y bg-secondary/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">

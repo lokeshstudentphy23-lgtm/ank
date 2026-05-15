@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { PackageCard } from "@/components/site/PackageCard";
-import { PACKAGES } from "@/lib/site";
+import { Hero } from "@/components/site/Hero";
+import { PACKAGES, HERO_IMAGES } from "@/lib/site";
 
 export const Route = createFileRoute("/packages")({
   head: () => ({
@@ -41,13 +42,14 @@ function Packages() {
   const items = filter === "all" ? PACKAGES : PACKAGES.filter(p => p.category === filter);
   return (
     <>
-      <section className="bg-navy text-navy-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <p className="text-saffron font-semibold tracking-wide uppercase text-sm">Tour Packages</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold">Pilgrimage & group tour packages</h1>
-          <p className="mt-3 max-w-2xl opacity-90">Curated journeys to Varanasi, Ayodhya, Prayagraj, Gaya, Kathmandu, Pokhara and beyond.</p>
-        </div>
-      </section>
+      <Hero
+        image={HERO_IMAGES.packages}
+        imageAlt="Travel destinations across India and Nepal"
+        eyebrow="Tour Packages"
+        height="sm"
+        title="Pilgrimage & group tour packages"
+        subtitle="Curated journeys to Varanasi, Ayodhya, Prayagraj, Gaya, Kathmandu, Pokhara and beyond."
+      />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-wrap gap-2 mb-8">
@@ -63,7 +65,7 @@ function Packages() {
           <div className="bg-card rounded-xl p-10 text-center card-lift">
             <h2 className="text-2xl font-bold">Custom & Special Requests</h2>
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">Building a private pilgrimage, school tour, or wedding-baraat circuit? Tell us your route and we'll design it for you.</p>
-            <a href="/contact" className="mt-5 inline-flex rounded-md bg-saffron px-5 py-3 text-sm font-semibold text-saffron-foreground">Request a Custom Itinerary</a>
+            <Link to="/plan-trip" className="mt-5 inline-flex rounded-md bg-saffron px-5 py-3 text-sm font-semibold text-saffron-foreground">Request a Custom Itinerary</Link>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

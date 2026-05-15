@@ -38,7 +38,7 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <Link to="/contact" className="hidden md:inline-flex items-center rounded-md bg-saffron px-4 py-2 text-sm font-semibold text-saffron-foreground hover:brightness-95 transition">
+        <Link to="/plan-trip" className="hidden md:inline-flex items-center rounded-md bg-saffron px-4 py-2 text-sm font-semibold text-saffron-foreground hover:brightness-95 transition shadow-md shadow-saffron/30">
           Plan Your Trip
         </Link>
         <button className="md:hidden p-2" onClick={() => setOpen(v => !v)} aria-label="Toggle menu" aria-expanded={open}>
@@ -58,7 +58,7 @@ export function Navbar() {
             </li>
           ))}
           <li>
-            <Link to="/contact" onClick={() => setOpen(false)} className="mt-2 block rounded-md bg-saffron px-3 py-2 text-center text-sm font-semibold text-saffron-foreground">
+            <Link to="/plan-trip" onClick={() => setOpen(false)} className="mt-2 block rounded-md bg-saffron px-3 py-2 text-center text-sm font-semibold text-saffron-foreground">
               Plan Your Trip
             </Link>
           </li>
