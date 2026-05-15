@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Bus, ShieldCheck, Wifi, MapPin, Clock, FileText, CheckCircle2 } from "lucide-react";
-import { COMPANY } from "@/lib/site";
+import { COMPANY, HERO_IMAGES } from "@/lib/site";
+import { Hero } from "@/components/site/Hero";
 import busExterior from "@/assets/bus-exterior.jpeg";
 import busInterior1 from "@/assets/bus-interior-1.jpeg";
 import busInterior2 from "@/assets/bus-interior-2.jpeg";
@@ -51,13 +52,13 @@ const steps = ["Enquire","Quotation (2–4 hrs)","Confirm + 25% Advance","Reconf
 function BusHire() {
   return (
     <>
-      <section className="bg-navy text-navy-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <p className="text-saffron font-semibold uppercase tracking-wide text-sm">Bus Hire</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-extrabold">Hire a Bus — Any Route, Any Group Size</h1>
-          <p className="mt-3 max-w-2xl opacity-90">Owned fleet of 30+ buses. Pilgrimages, school tours, corporate outings, wedding baraat, and multi-day circuits across India and Nepal.</p>
-        </div>
-      </section>
+      <Hero
+        image={HERO_IMAGES.busHire}
+        imageAlt="Premium tourist bus interior"
+        eyebrow="Bus Hire"
+        title="Any route. Any group size."
+        subtitle="Owned fleet of 30+ buses. Pilgrimages, school tours, corporate outings, wedding baraat, and multi-day circuits across India and Nepal."
+      />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <h2 className="text-3xl font-bold">Our Fleet</h2>
