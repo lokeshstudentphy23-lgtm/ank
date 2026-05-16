@@ -47,14 +47,14 @@ function Home() {
     <>
       <Hero
         image={HERO_IMAGES.home}
-        imageAlt="Varanasi ghats at sunrise — pilgrimage tours"
-        eyebrow="From the heart of Kashi"
+        imageAlt="Ganga Aarti at Varanasi — pilgrimage tours"
+        eyebrow="From the heart of Kashi · Est. 1995"
         height="lg"
-        title={<>Sacred journeys,<br /><span className="text-saffron">crafted with devotion.</span></>}
-        subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience and our own fleet of 30+ buses."
+        title={<>Sacred journeys,<br /><span className="text-gold">crafted with devotion.</span></>}
+        subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience and our own fleet of 30+ premium coaches."
       >
-        <Link to="/packages" className="rounded-md bg-saffron text-saffron-foreground px-6 py-3 text-sm font-semibold hover:brightness-95 shadow-lg shadow-saffron/30">Explore Packages</Link>
-        <Link to="/plan-trip" className="rounded-md border border-white/40 bg-white/10 backdrop-blur px-6 py-3 text-sm font-semibold text-white hover:bg-white/20">Plan Your Trip</Link>
+        <Link to="/packages" className="rounded-full bg-gold text-gold-foreground px-7 py-3.5 text-sm font-semibold hover:brightness-105 shadow-xl shadow-black/30 transition">Explore Packages</Link>
+        <Link to="/plan-trip" className="rounded-full border border-white/50 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/15 transition">Plan Your Trip</Link>
       </Hero>
 
       <section className="bg-navy text-navy-foreground" aria-label="Trust indicators">
@@ -75,10 +75,12 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
-            <h2 className="text-3xl font-bold">Featured Pilgrimage Packages</h2>
-            <p className="text-muted-foreground mt-2">Handpicked journeys, led by Varanasi's most experienced operators.</p>
+            <p className="eyebrow text-saffron mb-2">Curated Pilgrimage</p>
+            <h2 className="text-3xl sm:text-4xl font-bold">Featured Pilgrimage Packages</h2>
+            <div className="gold-divider w-24 mt-3" />
+            <p className="text-muted-foreground mt-4 max-w-xl">Handpicked journeys, led by Varanasi's most experienced operators.</p>
           </div>
           <Link to="/packages" className="text-sm font-semibold text-navy hover:text-saffron">View All Packages →</Link>
         </div>
@@ -135,19 +137,40 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center">Our Fleet — Comfort, Safety, Zero Compromise</h2>
-        <p className="text-center text-muted-foreground mt-2">A glimpse of our owned fleet. Read more on the <Link to="/about" className="text-saffron hover:underline">About</Link> page or <Link to="/bus-hire" className="text-saffron hover:underline">hire a bus</Link>.</p>
+        <div className="text-center">
+          <p className="eyebrow text-saffron mb-2">Owned Fleet</p>
+          <h2 className="text-3xl sm:text-4xl font-bold">Comfort, Safety, Zero Compromise</h2>
+          <div className="gold-divider w-24 mt-3 mx-auto" />
+          <p className="text-muted-foreground mt-4">A glimpse of our owned fleet. Read more on the <Link to="/about" className="text-saffron hover:underline">About</Link> page or <Link to="/bus-hire" className="text-saffron hover:underline">hire a bus</Link>.</p>
+        </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {[
             { src: busExterior, caption: "All India Tourist Permit Coach", alt: "Neelkamal All India Tourist Permit coach exterior" },
             { src: busInterior1, caption: "Premium Branded Interior", alt: "Aarya branded bus interior with ambient lighting" },
             { src: busInterior2, caption: "Spacious Group Cabin", alt: "Spacious bus interior for pilgrimage groups" },
           ].map((b, i) => (
-            <figure key={i} className="card-lift rounded-xl overflow-hidden bg-card border">
+            <figure key={i} className="card-lift rounded-2xl overflow-hidden bg-card border group">
               <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[5/3] w-full object-cover" />
-              <figcaption className="p-3 text-sm text-center text-muted-foreground">{b.caption}</figcaption>
+              <figcaption className="p-4 text-sm text-center text-navy font-semibold">{b.caption}</figcaption>
             </figure>
           ))}
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden">
+        <img src={HERO_IMAGES.home} alt="Plan your sacred journey" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 text-white">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-gold">Begin your journey</p>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-white">Let our 30 years of experience plan your next pilgrimage.</h2>
+            <div className="gold-divider w-24 mt-5" />
+            <p className="mt-5 text-white/85 max-w-xl">From Kashi to Kathmandu, family yatra to corporate offsite — we craft journeys that travel with care.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/plan-trip" className="rounded-full bg-gold text-gold-foreground px-7 py-3.5 text-sm font-semibold hover:brightness-105 shadow-xl">Plan Your Trip</Link>
+              <Link to="/contact" className="rounded-full border border-white/50 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/15">Talk to an Expert</Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

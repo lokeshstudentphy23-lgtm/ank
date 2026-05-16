@@ -1,3 +1,14 @@
+import heroKashiAarti from "@/assets/hero-kashi-aarti.jpg";
+import heroVaranasiSunrise from "@/assets/hero-varanasi-sunrise.jpg";
+import heroFleet from "@/assets/hero-fleet.jpg";
+import pkgKashiVishwanath from "@/assets/pkg-kashi-vishwanath.jpg";
+import pkgAyodhya from "@/assets/pkg-ayodhya.jpg";
+import pkgKathmandu from "@/assets/pkg-kathmandu.jpg";
+import pkgPrayagraj from "@/assets/pkg-prayagraj.jpg";
+import pkgGaya from "@/assets/pkg-gaya.jpg";
+import pkgPokhara from "@/assets/pkg-pokhara.jpg";
+import pkgJanakpur from "@/assets/pkg-janakpur.jpg";
+
 export const COMPANY = {
   name: "Aarya Neelkamal Tours and Travels",
   shortName: "ANK Tours and Travels",
@@ -65,31 +76,27 @@ export const PACKAGES: Pkg[] = [
 
 export const CITIES = ["Varanasi","Ayodhya","Prayagraj","Gaya","Bodh Gaya","Gorakhpur","Lucknow","Patna","Naimisharanya","Janakpur","Kathmandu","Pokhara","Delhi","Agra","Haridwar","Amritsar"];
 
-// Royalty-free Unsplash imagery (auto-optimized via Unsplash CDN params)
-const u = (id: string, w = 1600) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
-
 export const HERO_IMAGES = {
-  home: u("photo-1561361513-2d000a50f0dc"),       // Varanasi ghats at sunrise
-  about: u("photo-1561361398-a8b2614ea3a8"),      // Ganga Aarti
-  packages: u("photo-1567606404787-bcc0c0bba62b"),// Varanasi boats
-  busHire: u("photo-1570125909232-eb263c188f7e"), // luxury coach interior
-  contact: u("photo-1561361513-2d000a50f0dc"),    // Varanasi ghats
-  planTrip: u("photo-1561361398-a8b2614ea3a8"),   // Ganga Aarti
+  home: heroKashiAarti,
+  about: heroVaranasiSunrise,
+  packages: pkgKashiVishwanath,
+  busHire: heroFleet,
+  contact: heroVaranasiSunrise,
+  planTrip: heroKashiAarti,
 };
 
 export const PACKAGE_IMAGES: Record<string, string> = {
-  "varanasi-budget": u("photo-1561361513-2d000a50f0dc", 900),
-  "varanasi-mid":    u("photo-1561361398-a8b2614ea3a8", 900), // Ganga Aarti
-  "varanasi-luxury": u("photo-1567606404787-bcc0c0bba62b", 900), // boats on Ganga
-  "ayodhya":         u("photo-1609947017295-90b87775d97e", 900), // Indian temple
-  "prayagraj":       u("photo-1561361513-2d000a50f0dc", 900),
-  "gaya":            u("photo-1567606404787-bcc0c0bba62b", 900),
-  "naimisharanya":   u("photo-1609920658906-8223bd289001", 900),
-  "janakpur":        u("photo-1565073624497-7e91b5cc3843", 900), // Nepal temple
-  "kathmandu":       u("photo-1605640840605-14ac1855827b", 900), // Boudhanath
-  "pokhara":         u("photo-1526772662000-3f88f10405ff", 900), // Pokhara lake
-  "up-circuit":      u("photo-1561361513-2d000a50f0dc", 900),
-  "nepal-circuit":   u("photo-1605640840605-14ac1855827b", 900),
-  "buddhist":        u("photo-1609947017295-90b87775d97e", 900),
+  "varanasi-budget": heroVaranasiSunrise,
+  "varanasi-mid":    pkgKashiVishwanath,
+  "varanasi-luxury": heroKashiAarti,
+  "ayodhya":         pkgAyodhya,
+  "prayagraj":       pkgPrayagraj,
+  "gaya":            pkgGaya,
+  "naimisharanya":   pkgKashiVishwanath,
+  "janakpur":        pkgJanakpur,
+  "kathmandu":       pkgKathmandu,
+  "pokhara":         pkgPokhara,
+  "up-circuit":      pkgAyodhya,
+  "nepal-circuit":   pkgKathmandu,
+  "buddhist":        pkgGaya,
 };
