@@ -70,26 +70,26 @@ const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=75`;
 
 export const HERO_IMAGES = {
-  home: u("photo-1561361513-2d000a50f0dc"),     // Varanasi ghats
-  about: u("photo-1545569341-9eb8b30979d9"),    // temple
-  packages: u("photo-1524492412937-b28074a5d7da"), // travel
-  busHire: u("photo-1544620347-c4fd4a3d5957"),  // bus interior
-  contact: u("photo-1488646953014-85cb44e25828"),// travel planning
-  planTrip: u("photo-1469854523086-cc02fe5d8800"),// world map
+  home: u("photo-1561361513-2d000a50f0dc"),       // Varanasi ghats at sunrise
+  about: u("photo-1561361398-a8b2614ea3a8"),      // Ganga Aarti
+  packages: u("photo-1567606404787-bcc0c0bba62b"),// Varanasi boats
+  busHire: u("photo-1570125909232-eb263c188f7e"), // luxury coach interior
+  contact: u("photo-1561361513-2d000a50f0dc"),    // Varanasi ghats
+  planTrip: u("photo-1561361398-a8b2614ea3a8"),   // Ganga Aarti
 };
 
 export const PACKAGE_IMAGES: Record<string, string> = {
   "varanasi-budget": u("photo-1561361513-2d000a50f0dc", 900),
-  "varanasi-mid":    u("photo-1567157577867-05ccb1388e66", 900),
-  "varanasi-luxury": u("photo-1582719471384-894fbb16e074", 900),
-  "ayodhya":         u("photo-1606298855672-3efb63017be8", 900),
-  "prayagraj":       u("photo-1602216056096-3b40cc0c9944", 900),
-  "gaya":            u("photo-1574236170880-faa57ce0bc09", 900),
-  "naimisharanya":   u("photo-1518002171953-a080ee817e1f", 900),
-  "janakpur":        u("photo-1605640840605-14ac1855827b", 900),
-  "kathmandu":       u("photo-1532509774891-141d37f25ae9", 900),
-  "pokhara":         u("photo-1526772662000-3f88f10405ff", 900),
-  "up-circuit":      u("photo-1599661046289-e31897846e41", 900),
-  "nepal-circuit":   u("photo-1454496522488-7a8e488e8606", 900),
-  "buddhist":        u("photo-1583255448430-b1a673ed9eef", 900),
+  "varanasi-mid":    u("photo-1561361398-a8b2614ea3a8", 900), // Ganga Aarti
+  "varanasi-luxury": u("photo-1567606404787-bcc0c0bba62b", 900), // boats on Ganga
+  "ayodhya":         u("photo-1609947017295-90b87775d97e", 900), // Indian temple
+  "prayagraj":       u("photo-1561361513-2d000a50f0dc", 900),
+  "gaya":            u("photo-1567606404787-bcc0c0bba62b", 900),
+  "naimisharanya":   u("photo-1609920658906-8223bd289001", 900),
+  "janakpur":        u("photo-1565073624497-7e91b5cc3843", 900), // Nepal temple
+  "kathmandu":       u("photo-1605640840605-14ac1855827b", 900), // Boudhanath
+  "pokhara":         u("photo-1526772662000-3f88f10405ff", 900), // Pokhara lake
+  "up-circuit":      u("photo-1561361513-2d000a50f0dc", 900),
+  "nepal-circuit":   u("photo-1605640840605-14ac1855827b", 900),
+  "buddhist":        u("photo-1609947017295-90b87775d97e", 900),
 };

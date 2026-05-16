@@ -6,7 +6,7 @@ type Props = { packageName?: string };
 export function WhatsAppButton({ packageName }: Props) {
   const message = packageName
     ? `Hi, I am interested in the ${packageName} package. Please share details.`
-    : "Hi, I'd like to enquire about a tour/bus hire.";
+    : "Hello, I would like to know more about your travel packages.";
   const href = buildWhatsAppLink(message);
   return (
     <a

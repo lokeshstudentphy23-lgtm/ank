@@ -5,6 +5,7 @@ import { COMPANY, HERO_IMAGES } from "@/lib/site";
 import { Hero } from "@/components/site/Hero";
 import { submitInquiry } from "@/lib/submissions";
 import { Phone, MessageCircle, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -102,7 +103,7 @@ function Contact() {
 
         <aside className="space-y-6">
           <div className="bg-card rounded-2xl border p-6 sm:p-8 card-lift">
-            <div className="h-16 w-16 rounded-md placeholder-gradient flex items-center justify-center text-xs font-bold">LOGO</div>
+            <img src={logo} alt={`${COMPANY.name} logo`} className="h-16 w-16 rounded-md object-cover border" />
             <h2 className="mt-4 text-2xl font-bold">{COMPANY.name}</h2>
             <p className="text-sm text-muted-foreground">{COMPANY.tagline}</p>
             <ul className="mt-6 space-y-3 text-sm">
