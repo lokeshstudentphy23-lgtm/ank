@@ -24,16 +24,14 @@ export function Navbar() {
   const wa = buildWhatsAppLink("Hello, I would like to know more about your travel packages.");
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md border-b shadow-sm"
-          : "bg-gradient-to-b from-black/55 to-transparent border-transparent"
+      className={`sticky top-0 z-40 transition-all duration-300 bg-background/95 backdrop-blur-md border-b ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <nav className="mx-auto flex h-18 py-3 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt={`${COMPANY.name} logo`} className={`h-11 w-11 rounded-md object-cover ring-1 ${scrolled ? "ring-border" : "ring-white/30"}`} />
-          <span className={`font-display font-bold hidden sm:inline leading-tight text-sm md:text-base ${scrolled ? "text-navy" : "text-white drop-shadow"}`}>
+          <img src={logo} alt={`${COMPANY.name} logo`} className="h-11 w-11 rounded-md object-cover ring-1 ring-border" />
+          <span className="font-display font-bold hidden sm:inline leading-tight text-sm md:text-base text-navy">
             {COMPANY.shortName}
           </span>
         </Link>
@@ -43,8 +41,8 @@ export function Navbar() {
               <Link
                 to={l.to}
                 activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: scrolled ? "text-saffron" : "text-gold" }}
-                inactiveProps={{ className: scrolled ? "text-foreground hover:text-navy" : "text-white/90 hover:text-gold" }}
+                activeProps={{ className: "text-saffron" }}
+                inactiveProps={{ className: "text-foreground hover:text-navy" }}
                 className="text-sm font-medium transition-colors"
               >
                 {l.label}
@@ -57,9 +55,7 @@ export function Navbar() {
             href={wa}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium transition ${
-              scrolled ? "text-navy hover:bg-secondary" : "text-white/90 hover:bg-white/10"
-            }`}
+            className="inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-medium text-navy hover:bg-secondary transition"
             aria-label="Chat on WhatsApp"
           >
             <MessageCircle className="h-4 w-4 text-[#25D366]" /> WhatsApp
@@ -68,7 +64,7 @@ export function Navbar() {
             Plan Your Trip
           </Link>
         </div>
-        <button className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu" aria-expanded={open}>
+        <button className="md:hidden p-2 text-foreground" onClick={() => setOpen(v => !v)} aria-label="Toggle menu" aria-expanded={open}>
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
