@@ -21,7 +21,6 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  void scrolled;
   const wa = buildWhatsAppLink("Hello, I would like to know more about your travel packages.");
   return (
     <header
