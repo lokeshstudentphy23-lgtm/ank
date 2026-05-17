@@ -8,6 +8,12 @@ import pkgPrayagraj from "@/assets/pkg-prayagraj.jpg";
 import pkgGaya from "@/assets/pkg-gaya.jpg";
 import pkgPokhara from "@/assets/pkg-pokhara.jpg";
 import pkgJanakpur from "@/assets/pkg-janakpur.jpg";
+import pkgNaimisharanya from "@/assets/pkg-naimisharanya.jpg";
+import pkgBuddhist from "@/assets/pkg-buddhist.jpg";
+import pkgUpCircuit from "@/assets/pkg-up-circuit.jpg";
+import pkgNepalCircuit from "@/assets/pkg-nepal-circuit.jpg";
+import pkgVaranasiBudget from "@/assets/pkg-varanasi-budget.jpg";
+import pkgVaranasiLuxury from "@/assets/pkg-varanasi-luxury.jpg";
 
 export const COMPANY = {
   name: "Aarya Neelkamal Tours and Travels",
@@ -86,17 +92,17 @@ export const HERO_IMAGES = {
 };
 
 export const PACKAGE_IMAGES: Record<string, string> = {
-  "varanasi-budget": heroVaranasiSunrise,
+  "varanasi-budget": pkgVaranasiBudget,
   "varanasi-mid":    pkgKashiVishwanath,
-  "varanasi-luxury": heroKashiAarti,
+  "varanasi-luxury": pkgVaranasiLuxury,
   "ayodhya":         pkgAyodhya,
   "prayagraj":       pkgPrayagraj,
   "gaya":            pkgGaya,
-  "naimisharanya":   pkgKashiVishwanath,
+  "naimisharanya":   pkgNaimisharanya,
   "janakpur":        pkgJanakpur,
   "kathmandu":       pkgKathmandu,
   "pokhara":         pkgPokhara,
-  "up-circuit":      pkgAyodhya,
-  "nepal-circuit":   pkgKathmandu,
-  "buddhist":        pkgGaya,
+  "up-circuit":      pkgUpCircuit,
+  "nepal-circuit":   pkgNepalCircuit,
+  "buddhist":        pkgBuddhist,
 };

@@ -25,14 +25,16 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
             alt={pkg.alt}
             loading="lazy"
             decoding="async"
+            width={1280}
+            height={768}
             className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
         <span className={`absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow tracking-wide ${tagColor(pkg.tag)}`}>{pkg.tag}</span>
         <div className="absolute bottom-3 left-4 right-4 text-white">
-          <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight drop-shadow">{pkg.name}</h3>
-          <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/90">
+          <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">{pkg.name}</h3>
+          <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white font-medium [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]">
             <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{pkg.duration}</span>
             <span className="inline-flex items-center gap-1"><IndianRupee className="h-3.5 w-3.5" />{pkg.price.replace("From ₹","").replace("From ","")}</span>
           </div>
