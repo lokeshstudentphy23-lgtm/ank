@@ -129,4 +129,10 @@
   }
   .eyebrow { letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.72rem; font-weight: 600; }
   .step-dot { transition: all .25s ease; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease-out, transform .7s ease-out; will-change: opacity, transform; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .ken-burns { animation: none; }
+  }
 }
