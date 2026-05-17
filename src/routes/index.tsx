@@ -6,6 +6,8 @@ import { Bus, Award, Users, MapPin, Mountain, Landmark, Sparkles, Flame } from "
 import busExterior from "@/assets/bus-exterior.jpeg";
 import busInterior1 from "@/assets/bus-interior-1.jpeg";
 import busInterior2 from "@/assets/bus-interior-2.jpeg";
+import { AnimatedCounter } from "@/components/site/AnimatedCounter";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,16 +62,20 @@ function Home() {
       <section className="bg-navy text-navy-foreground" aria-label="Trust indicators">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
-            { icon: Award, k: "30+", v: "Years Experience" },
-            { icon: Bus, k: "30+", v: "Owned Buses" },
-            { icon: Users, k: "1000+", v: "Happy Travellers" },
-            { icon: MapPin, k: "All India", v: "& Nepal Coverage" },
-          ].map(({ icon: Icon, k, v }) => (
-            <div key={v} className="flex flex-col items-center gap-1">
+            { icon: Award, num: 30, suffix: "+", v: "Years Experience" },
+            { icon: Bus,   num: 30, suffix: "+", v: "Owned Buses" },
+            { icon: Users, num: 1000, suffix: "+", v: "Happy Travellers" },
+            { icon: MapPin, label: "All India", v: "& Nepal Coverage" },
+          ].map(({ icon: Icon, num, suffix, label, v }, i) => (
+            <Reveal key={v} delay={i * 80} className="flex flex-col items-center gap-1">
               <Icon className="h-6 w-6 text-saffron" />
-              <div className="font-bold text-lg">{k}</div>
+              <div className="font-bold text-lg">
+                {typeof num === "number"
+                  ? <AnimatedCounter end={num} suffix={suffix} />
+                  : label}
+              </div>
               <div className="text-xs opacity-80">{v}</div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -85,7 +91,9 @@ function Home() {
           <Link to="/packages" className="text-sm font-semibold text-navy hover:text-saffron">View All Packages →</Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {featured.map(p => <PackageCard key={p.id} pkg={p} />)}
+          {featured.map((p, i) => (
+            <Reveal key={p.id} delay={i * 90}><PackageCard pkg={p} /></Reveal>
+          ))}
         </div>
       </section>
 
@@ -149,10 +157,14 @@ function Home() {
             { src: busInterior1, caption: "Premium Branded Interior", alt: "Aarya branded bus interior with ambient lighting" },
             { src: busInterior2, caption: "Spacious Group Cabin", alt: "Spacious bus interior for pilgrimage groups" },
           ].map((b, i) => (
-            <figure key={i} className="card-lift rounded-2xl overflow-hidden bg-card border group">
-              <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[5/3] w-full object-cover" />
-              <figcaption className="p-4 text-sm text-center text-navy font-semibold">{b.caption}</figcaption>
-            </figure>
+            <Reveal key={i} delay={i * 90}>
+              <figure className="card-lift rounded-2xl overflow-hidden bg-card border group">
+                <div className="overflow-hidden">
+                  <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[5/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+                <figcaption className="p-4 text-sm text-center text-navy font-semibold">{b.caption}</figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </section>
