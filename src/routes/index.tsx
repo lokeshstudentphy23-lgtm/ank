@@ -8,6 +8,7 @@ import busInterior1 from "@/assets/bus-interior-1.jpeg";
 import busInterior2 from "@/assets/bus-interior-2.jpeg";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
+import { RouteShowcase } from "@/components/site/RouteShowcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -79,6 +80,8 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <RouteShowcase />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
