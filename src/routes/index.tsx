@@ -81,6 +81,8 @@ function Home() {
         </div>
       </section>
 
+      <RouteShowcase />
+
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
           <div>
