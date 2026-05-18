@@ -68,7 +68,7 @@ const ROUTES: Route[] = [
   { name: "Chennai & Tamil Nadu", region: "South Temple Circuit", image: routeSouthIndia,
     description: "Madurai, Rameshwaram, Tirupati & Kanchipuram — South India yatra.",
     alt: "Tamil Nadu South India temple tour route" },
-  { name: "Andhra Pradesh", region: "Tirupati & Beyond", image: pkgPokhara,
+  { name: "Andhra Pradesh", region: "Tirupati & Beyond", image: fleetTouristCoach,
     description: "Tirumala Balaji darshan and onward South Indian pilgrimage routes.",
     alt: "Andhra Pradesh Tirupati pilgrimage route" },
 ];
