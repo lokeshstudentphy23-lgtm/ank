@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { buildWhatsAppLink, PACKAGE_IMAGES, type Pkg } from "@/lib/site";
-import { Clock, IndianRupee, MessageCircle, ArrowRight, Info } from "lucide-react";
+import { PACKAGE_IMAGES, type Pkg } from "@/lib/site";
+import { Clock, IndianRupee, ArrowRight, Info } from "lucide-react";
 import { PackageDetailDialog } from "@/components/site/PackageDetailDialog";
 
 const tagColor = (tag: string) => {
@@ -57,27 +57,18 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
         <ul className="space-y-1.5 text-sm text-foreground/80 flex-1">
           {pkg.highlights.slice(0,3).map(h => <li key={h}>• {h}</li>)}
         </ul>
-        <div className="mt-5 grid grid-cols-3 gap-2">
+        <div className="mt-5 grid grid-cols-2 gap-2">
           <PackageDetailDialog
             pkg={pkg}
             trigger={
               <button type="button" className="inline-flex justify-center items-center gap-1 rounded-full border border-navy/20 text-navy px-3 py-2.5 text-sm font-semibold hover:bg-secondary transition">
-                Details
+                View Details
               </button>
             }
           />
           <Link to="/contact" className="inline-flex justify-center items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-3 py-2.5 text-sm font-semibold hover:bg-navy/90 transition">
             Enquire <ArrowRight className="h-3.5 w-3.5" />
           </Link>
-          <a
-            href={buildWhatsAppLink(`Hi, I am interested in the ${pkg.name} package. Please share details.`)}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Chat on WhatsApp about ${pkg.name}`}
-            className="inline-flex justify-center items-center gap-1.5 rounded-full bg-[#25D366] text-white px-3 py-2.5 text-sm font-semibold hover:brightness-95 transition"
-          >
-            <MessageCircle className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </article>

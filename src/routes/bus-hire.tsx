@@ -2,9 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Bus, ShieldCheck, Wifi, MapPin, Clock, FileText, CheckCircle2 } from "lucide-react";
 import { COMPANY, HERO_IMAGES } from "@/lib/site";
 import { Hero } from "@/components/site/Hero";
-import busExterior from "@/assets/bus-exterior.jpeg";
-import busInterior1 from "@/assets/bus-interior-1.jpeg";
-import busInterior2 from "@/assets/bus-interior-2.jpeg";
+import fleetTouristCoach from "@/assets/fleet-tourist-coach.jpg";
+import fleetTravellerVan from "@/assets/fleet-traveller-van.jpg";
+import fleetTravellerInterior from "@/assets/fleet-traveller-interior.jpg";
+import heroFleet from "@/assets/hero-fleet.jpg";
 
 export const Route = createFileRoute("/bus-hire")({
   head: () => ({
@@ -31,11 +32,12 @@ export const Route = createFileRoute("/bus-hire")({
 });
 
 const fleet = [
-  { name: "Mini Bus", seats: "12–20 seats", img: busInterior2, lines: ["Non-AC: from ₹3,500/day or ₹18/km", "AC: from ₹5,000/day or ₹25/km"] },
-  { name: "Medium Bus", seats: "21–32 seats", img: busInterior1, lines: ["Non-AC: from ₹4,500/day or ₹22/km", "AC: from ₹6,200/day or ₹32/km"] },
-  { name: "Large Bus", seats: "33–45 seats", img: busExterior, lines: ["Non-AC: from ₹5,500/day", "AC: from ₹7,800/day", "Semi-Sleeper: from ₹9,800/day"] },
-  { name: "Luxury Coach", seats: "46–54 seats", img: busInterior1, lines: ["AC: from ₹11,000/day", "Semi-Sleeper: from ₹13,500/day"] },
-  { name: "Volvo / Super Luxury", seats: "55+ seats", img: busExterior, lines: ["Semi-Sleeper: from ₹17,000/day", "Luxury: from ₹22,000/day"] },
+  { name: "Tempo Traveller", seats: "12–20 seats", img: fleetTravellerVan, lines: ["Non-AC: from ₹3,500/day or ₹18/km", "AC: from ₹5,000/day or ₹25/km"] },
+  { name: "Premium Traveller AC", seats: "13–17 seats", img: fleetTravellerInterior, lines: ["Pushback recliners + LED + Screen", "AC: from ₹6,200/day or ₹32/km"] },
+  { name: "Medium Coach", seats: "21–32 seats", img: heroFleet, lines: ["Non-AC: from ₹4,500/day or ₹22/km", "AC: from ₹6,200/day or ₹32/km"] },
+  { name: "Large Tourist Coach", seats: "33–45 seats", img: fleetTouristCoach, lines: ["Non-AC: from ₹5,500/day", "AC: from ₹7,800/day", "Semi-Sleeper: from ₹9,800/day"] },
+  { name: "Luxury Coach", seats: "46–54 seats", img: fleetTouristCoach, lines: ["AC: from ₹11,000/day", "Semi-Sleeper: from ₹13,500/day"] },
+  { name: "Volvo / Super Luxury", seats: "55+ seats", img: heroFleet, lines: ["Semi-Sleeper: from ₹17,000/day", "Luxury: from ₹22,000/day"] },
 ];
 
 const routes = [
