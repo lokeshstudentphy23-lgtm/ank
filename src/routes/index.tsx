@@ -8,6 +8,7 @@ import busInterior1 from "@/assets/bus-interior-1.jpeg";
 import busInterior2 from "@/assets/bus-interior-2.jpeg";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
+import { RouteShowcase } from "@/components/site/RouteShowcase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
