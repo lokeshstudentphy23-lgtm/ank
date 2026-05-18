@@ -3,9 +3,9 @@ import { Hero } from "@/components/site/Hero";
 import { PackageCard } from "@/components/site/PackageCard";
 import { PACKAGES, COMPANY, CITIES, HERO_IMAGES } from "@/lib/site";
 import { Bus, Award, Users, MapPin, Mountain, Landmark, Sparkles, Flame } from "lucide-react";
-import busExterior from "@/assets/bus-exterior.jpeg";
-import busInterior1 from "@/assets/bus-interior-1.jpeg";
-import busInterior2 from "@/assets/bus-interior-2.jpeg";
+import fleetTouristCoach from "@/assets/fleet-tourist-coach.jpg";
+import fleetTravellerVan from "@/assets/fleet-traveller-van.jpg";
+import fleetTravellerInterior from "@/assets/fleet-traveller-interior.jpg";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { Reveal } from "@/components/site/Reveal";
 import { RouteShowcase } from "@/components/site/RouteShowcase";
@@ -156,14 +156,14 @@ function Home() {
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {[
-            { src: busExterior, caption: "All India Tourist Permit Coach", alt: "Neelkamal All India Tourist Permit coach exterior" },
-            { src: busInterior1, caption: "Premium Branded Interior", alt: "Aarya branded bus interior with ambient lighting" },
-            { src: busInterior2, caption: "Spacious Group Cabin", alt: "Spacious bus interior for pilgrimage groups" },
+            { src: fleetTouristCoach, caption: "AARYA Luxury Tourist Coach — All India Permit", alt: "Aarya Neelkamal luxury tourist coach with All India Tourist Permit, parked in Varanasi" },
+            { src: fleetTravellerVan, caption: "Jannet Tempo Traveller — Group Pilgrimage", alt: "Premium Tempo Traveller for small group pilgrimage tours" },
+            { src: fleetTravellerInterior, caption: "AC Cabin with Entertainment & Pushback Seats", alt: "Traveller interior showing pushback leather seats, LED roof lighting and entertainment screen" },
           ].map((b, i) => (
             <Reveal key={i} delay={i * 90}>
               <figure className="card-lift rounded-2xl overflow-hidden bg-card border group">
                 <div className="overflow-hidden">
-                  <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[5/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={b.src} alt={b.alt} loading="lazy" width={1280} height={768} className="aspect-[5/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <figcaption className="p-4 text-sm text-center text-navy font-semibold">{b.caption}</figcaption>
               </figure>

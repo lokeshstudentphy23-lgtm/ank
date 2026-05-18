@@ -16,6 +16,7 @@ import pkgAyodhya from "@/assets/pkg-ayodhya.jpg";
 import pkgPrayagraj from "@/assets/pkg-prayagraj.jpg";
 import pkgGaya from "@/assets/pkg-gaya.jpg";
 import pkgNaimisharanya from "@/assets/pkg-naimisharanya.jpg";
+import fleetTouristCoach from "@/assets/fleet-tourist-coach.jpg";
 
 type Route = {
   name: string;
@@ -65,7 +66,7 @@ const ROUTES: Route[] = [
   { name: "Chennai & Tamil Nadu", region: "South Temple Circuit", image: routeSouthIndia,
     description: "Madurai, Rameshwaram, Tirupati & Kanchipuram — South India yatra.",
     alt: "Tamil Nadu South India temple tour route" },
-  { name: "Andhra Pradesh", region: "Tirupati & Beyond", image: routeSouthIndia,
+  { name: "Andhra Pradesh", region: "Tirupati & Beyond", image: fleetTouristCoach,
     description: "Tirumala Balaji darshan and onward South Indian pilgrimage routes.",
     alt: "Andhra Pradesh Tirupati pilgrimage route" },
 ];
