@@ -16,9 +16,7 @@ import pkgAyodhya from "@/assets/pkg-ayodhya.jpg";
 import pkgPrayagraj from "@/assets/pkg-prayagraj.jpg";
 import pkgGaya from "@/assets/pkg-gaya.jpg";
 import pkgNaimisharanya from "@/assets/pkg-naimisharanya.jpg";
-import pkgPokhara from "@/assets/pkg-pokhara.jpg";
 import fleetTouristCoach from "@/assets/fleet-tourist-coach.jpg";
-import fleetTravellerVan from "@/assets/fleet-traveller-van.jpg";
 
 type Route = {
   name: string;
