@@ -29,10 +29,11 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-18 py-3 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt={`${COMPANY.name} logo`} className="h-11 w-11 rounded-md object-cover ring-1 ring-border" />
-          <span className="font-display font-bold hidden sm:inline leading-tight text-sm md:text-base text-navy">
-            {COMPANY.shortName}
+        <Link to="/" className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 sm:flex-initial">
+          <img src={logo} alt={`${COMPANY.name} logo`} className="h-9 w-9 sm:h-11 sm:w-11 rounded-md object-cover ring-1 ring-border shrink-0" />
+          <span className="font-display font-bold leading-tight text-[13px] sm:text-sm md:text-base text-navy truncate">
+            <span className="sm:hidden">ANK Travels</span>
+            <span className="hidden sm:inline">{COMPANY.shortName}</span>
           </span>
         </Link>
         <ul className="hidden md:flex items-center gap-8">

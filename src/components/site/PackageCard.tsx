@@ -38,7 +38,8 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
                 className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/15" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
             <span className={`absolute top-3 left-3 text-[11px] font-semibold px-2.5 py-1 rounded-full shadow tracking-wide ${tagColor(pkg.tag)}`}>{pkg.tag}</span>
             <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/90 text-navy text-[11px] font-semibold px-2.5 py-1 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur">
               <Info className="h-3 w-3" /> Details
