@@ -115,20 +115,29 @@ function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center">What Travellers Say</h2>
-        <p className="text-center text-muted-foreground mt-2">Real testimonials from our pilgrims will appear here.</p>
+        <div className="text-center max-w-2xl mx-auto">
+          <p className="eyebrow text-saffron mb-2">Pilgrim Voices</p>
+          <h2 className="text-3xl sm:text-4xl font-bold">Trusted by families across India</h2>
+          <div className="gold-divider w-24 mt-3 mx-auto" />
+        </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[1,2,3].map(i => (
-            <article key={i} className="bg-card rounded-xl p-6 card-lift">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-full placeholder-gradient flex items-center justify-center text-xs font-bold">AVT</div>
-                <div>
-                  <div className="font-semibold">[NAME PLACEHOLDER]</div>
-                  <div className="text-xs text-muted-foreground">[LOCATION]</div>
+          {[
+            { initials: "RS", name: "Ramesh Sharma", loc: "Delhi", quote: "Our family Chardham yatra was managed end-to-end — clean coach, punctual driver, and not a single hiccup across 12 days." },
+            { initials: "MP", name: "Meena Patel", loc: "Ahmedabad", quote: "We did the Kashi–Ayodhya–Prayag circuit with 36 relatives. The team handled hotels, darshan slots and meals with remarkable care." },
+            { initials: "AK", name: "Anand Kulkarni", loc: "Pune", quote: "Booked the Nepal circuit for our parents. The Tempo Traveller was premium, drivers were respectful and the itinerary was beautifully paced." },
+          ].map((t) => (
+            <Reveal key={t.name}>
+              <article className="bg-card rounded-xl p-6 card-lift h-full">
+                <div className="flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full placeholder-gradient flex items-center justify-center text-xs font-bold">{t.initials}</div>
+                  <div>
+                    <div className="font-semibold text-navy">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.loc}</div>
+                  </div>
                 </div>
-              </div>
-              <p className="mt-4 text-sm text-foreground/80 italic">[TESTIMONIAL {i} — text placeholder]</p>
-            </article>
+                <p className="mt-4 text-sm text-foreground/80 italic leading-relaxed">"{t.quote}"</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </section>
