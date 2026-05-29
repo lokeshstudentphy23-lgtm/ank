@@ -1,10 +1,8 @@
-import { defineConfig } from 'vite';
-import { tanstackStart } from '@tanstack/react-start/plugin/vite';
-import { nitro } from 'nitro/vite';
-
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
-  plugins: [
-    tanstackStart(),
-    nitro(),
-  ],
+  // Dynamically disable Cloudflare plugins when building in a Vercel environment
+  cloudflare: process.env.VERCEL ? false : undefined,
+  tanstackStart: {
+    server: { entry: "server" },
+  },
 });
