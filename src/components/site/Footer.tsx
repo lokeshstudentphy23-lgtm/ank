@@ -24,6 +24,7 @@ export function Footer() {
             <li><Link to="/about" className="hover:text-saffron">About</Link></li>
             <li><Link to="/packages" className="hover:text-saffron">Packages</Link></li>
             <li><Link to="/bus-hire" className="hover:text-saffron">Bus Hire</Link></li>
+            <li><Link to="/contact" className="hover:text-saffron">Car Rentals</Link></li>
             <li><Link to="/contact" className="hover:text-saffron">Contact</Link></li>
           </ul>
         </div>
@@ -56,8 +57,8 @@ export function Footer() {
           <p className="text-xs opacity-80 leading-relaxed">
             {COMPANY.name} is a Varanasi-based pilgrimage and group tour operator with 30+ years of experience.
             We offer curated pilgrimage packages to Varanasi, Ayodhya, Prayagraj, Gaya, Naimisharanya, Janakpur,
-            Kathmandu, and Pokhara. With an owned fleet covering all India and Nepal routes, we are the trusted
-            choice for family pilgrimages, school tours, corporate outings, and group travel.
+            Kathmandu, and Pokhara. With an owned fleet of premium coaches and budget to luxury car booking services, 
+            we are the trusted choice for family pilgrimages, school tours, corporate outings, airport transfers, and group travel across India and Nepal.
           </p>
           <p className="mt-4 text-xs opacity-60">© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
         </div>

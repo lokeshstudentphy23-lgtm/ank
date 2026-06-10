@@ -14,10 +14,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Aarya Neelkamal Tours and Travels | Pilgrimage & Group Tours from Varanasi | 30+ Years Trusted Travel" },
-      { name: "description", content: "Varanasi-based pilgrimage tour operator with 30+ years of experience. Curated tours to Kashi, Ayodhya, Prayagraj, Gaya, Kathmandu & Pokhara with our own fleet of 30+ buses." },
-      { name: "keywords", content: "pilgrimage tours Varanasi, Kashi tour package, Ayodhya tour, Nepal tour from Varanasi, bus hire Varanasi, group travel UP" },
-      { property: "og:title", content: "Aarya Neelkamal Tours and Travels — Pilgrimage & Group Tours from Varanasi" },
-      { property: "og:description", content: "30+ years of trusted pilgrimage and group travel across India and Nepal." },
+      { name: "description", content: "Varanasi-based travel operator with 30+ years of experience. Curated tours, bus hire, and premium car rentals across Kashi, Ayodhya, Prayagraj & Nepal." },
+      { name: "keywords", content: "pilgrimage tours Varanasi, Kashi tour package, Ayodhya tour, Nepal tour, bus hire Varanasi, car rental services, luxury car booking, chauffeur service, airport transfer" },
+      { property: "og:title", content: "Aarya Neelkamal Tours and Travels — Tours, Bus Hire & Car Rentals" },
+      { property: "og:description", content: "30+ years of trusted pilgrimage travel, bus hire, and premium car rental services across India and Nepal." },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -54,7 +54,7 @@ function Home() {
         eyebrow="From the heart of Kashi · Est. 1995"
         height="lg"
         title={<>Sacred journeys,<br /><span className="text-gold">crafted with devotion.</span></>}
-        subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience and our own fleet of 30+ premium coaches."
+        subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience, premium car rentals, and our own fleet of 30+ coaches."
       >
         <Link to="/packages" className="rounded-full bg-gold text-gold-foreground px-7 py-3.5 text-sm font-semibold hover:brightness-105 shadow-xl shadow-black/30 transition">Explore Packages</Link>
         <Link to="/plan-trip" className="rounded-full border border-white/50 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/15 transition">Plan Your Trip</Link>
@@ -156,12 +156,54 @@ function Home() {
         </div>
       </section>
 
+      <section className="bg-secondary/30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            <div className="md:w-1/2">
+              <p className="eyebrow text-saffron mb-2">Transport Solutions</p>
+              <h2 className="text-3xl sm:text-4xl font-bold">From Budget Cars to Luxury Vehicles – Travel Your Way</h2>
+              <div className="gold-divider w-24 mt-3" />
+              <p className="mt-5 text-foreground/80 leading-relaxed">
+                Whether you need an affordable city transfer, a corporate travel vehicle, or a premium luxury car for a special occasion, we provide chauffeur-driven vehicles across India. 
+                Experience seamless airport transfers, corporate bookings, and family transportation with our dedicated fleet of sedans and SUVs.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/contact" className="rounded-full bg-navy text-primary-foreground px-6 py-3 text-sm font-semibold hover:bg-navy/90 transition shadow-md">
+                  Inquire Now
+                </Link>
+                <Link to="/bus-hire" className="rounded-full border px-6 py-3 text-sm font-semibold hover:bg-secondary transition">
+                  Looking for Buses?
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+              <div className="bg-card rounded-xl p-5 border card-lift">
+                <h3 className="font-bold text-navy text-lg">Budget Rentals</h3>
+                <p className="text-sm text-muted-foreground mt-1">Affordable, reliable sedans for daily commutes and airport transfers.</p>
+              </div>
+              <div className="bg-card rounded-xl p-5 border card-lift">
+                <h3 className="font-bold text-navy text-lg">Luxury Vehicles</h3>
+                <p className="text-sm text-muted-foreground mt-1">Premium SUVs and luxury cars for corporate events and weddings.</p>
+              </div>
+              <div className="bg-card rounded-xl p-5 border card-lift">
+                <h3 className="font-bold text-navy text-lg">Chauffeur Service</h3>
+                <p className="text-sm text-muted-foreground mt-1">Professional, verified drivers for outstation and local travel.</p>
+              </div>
+              <div className="bg-card rounded-xl p-5 border card-lift">
+                <h3 className="font-bold text-navy text-lg">Corporate Travel</h3>
+                <p className="text-sm text-muted-foreground mt-1">Dedicated vehicles tailored for business delegations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
           <p className="eyebrow text-saffron mb-2">Owned Fleet</p>
           <h2 className="text-3xl sm:text-4xl font-bold">Comfort, Safety, Zero Compromise</h2>
           <div className="gold-divider w-24 mt-3 mx-auto" />
-          <p className="text-muted-foreground mt-4">A glimpse of our owned fleet. Read more on the <Link to="/about" className="text-saffron hover:underline">About</Link> page or <Link to="/bus-hire" className="text-saffron hover:underline">hire a bus</Link>.</p>
+          <p className="text-muted-foreground mt-4">A glimpse of our owned bus fleet. Read more on the <Link to="/about" className="text-saffron hover:underline">About</Link> page or <Link to="/bus-hire" className="text-saffron hover:underline">hire a bus</Link>.</p>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {[

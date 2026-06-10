@@ -11,10 +11,10 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Aarya Neelkamal Tours and Travels | Book Pilgrimage Tours & Bus Hire from Varanasi" },
-      { name: "description", content: "Contact Aarya Neelkamal Tours and Travels in Varanasi to book pilgrimage tours, group travel and bus hire. Call, WhatsApp, or send an enquiry — we respond in 2–4 hours." },
-      { name: "keywords", content: "contact Varanasi travel agent, book pilgrimage Varanasi, bus hire enquiry, Nepal tour booking" },
+      { name: "description", content: "Contact Aarya Neelkamal Tours and Travels in Varanasi to book pilgrimage tours, group travel, bus hire, and premium car rentals. Call, WhatsApp, or send an enquiry — we respond in 2–4 hours." },
+      { name: "keywords", content: "contact Varanasi travel agent, book pilgrimage Varanasi, bus hire enquiry, Nepal tour booking, car rental enquiry, airport transfer booking, chauffeur service" },
       { property: "og:title", content: "Contact Aarya Neelkamal Tours and Travels" },
-      { property: "og:description", content: "Reach our Varanasi team for tours and bus hire." },
+      { property: "og:description", content: "Reach our Varanasi team for tours, bus hire, and premium car rentals." },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -66,7 +66,7 @@ function Contact() {
         eyebrow="Contact"
         height="sm"
         title="Plan your journey with us"
-        subtitle="Tell us where you'd like to go. We typically respond within 2–4 hours."
+        subtitle="Tell us where you'd like to go, or what vehicle you need. We typically respond within 2–4 hours."
       />
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid gap-10 lg:grid-cols-2">
@@ -87,6 +87,8 @@ function Contact() {
               <option>Group / Bulk Booking</option>
               <option>Corporate / Office Trip</option>
               <option>Bus Hire / Charter</option>
+              <option>Car Rental / Chauffeur Service</option>
+              <option>Airport / City Transfer</option>
               <option>Custom / Special Request</option>
             </select>
           </div>
