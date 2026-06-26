@@ -43,20 +43,20 @@ function About() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-3xl font-bold">Our Fleet</h2>
         <p className="text-muted-foreground mt-2 max-w-2xl">Owned, maintained, and GPS-tracked — every bus is ready for pilgrimages, school tours, weddings, and corporate trips. See full hire details on the <Link to="/bus-hire" className="text-saffron hover:underline">Bus Hire</Link> page.</p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
           {[
             { src: busExterior, caption: "Neelkamal — All India Tourist Permit Coach", alt: "Aarya Neelkamal tourist coach exterior with All India Tourist Permit" },
             { src: busInterior1, caption: "Premium AARYA branded interior with mood lighting", alt: "Aarya bus interior with branded headrests and ambient lighting" },
             { src: busInterior2, caption: "Spacious cabin for long pilgrimage circuits", alt: "Spacious bus interior for long-distance pilgrimage tours" },
-            { src: busExterior, caption: "Tourist-permitted for pan-India & Nepal", alt: "Tourist permit bus for Varanasi to Nepal pilgrimage tours" },
-            { src: busInterior1, caption: "Comfort seating for group travel", alt: "Comfortable group travel bus interior" },
-            { src: busInterior2, caption: "Well-lit, ventilated coach", alt: "Well-lit and ventilated coach interior" },
           ].map((b, i) => (
             <figure key={i} className="card-lift rounded-xl overflow-hidden bg-card border">
               <img src={b.src} alt={b.alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
               <figcaption className="p-3 text-sm text-muted-foreground">{b.caption}</figcaption>
             </figure>
           ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Link to="/bus-hire" className="inline-flex items-center gap-1.5 text-sm font-semibold text-saffron hover:underline">View Full Fleet &amp; Pricing →</Link>
         </div>
       </section>
 
@@ -84,14 +84,17 @@ function About() {
         <h2 className="text-3xl font-bold text-center">Our Values</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: ShieldCheck, t: "Safety" },
-            { icon: Award, t: "Reliability" },
-            { icon: Sparkles, t: "Comfort" },
-            { icon: Heart, t: "Devotion" },
-          ].map(({ icon: Icon, t }) => (
-            <div key={t} className="text-center p-6">
-              <Icon className="h-10 w-10 text-saffron mx-auto" />
-              <h3 className="mt-3 font-bold">{t}</h3>
+            { icon: ShieldCheck, t: "Safety", d: "Every vehicle is GPS-tracked, insured, and driven by verified, experienced professionals." },
+            { icon: Award, t: "Reliability", d: "30+ years of on-time departures, transparent billing, and zero hidden charges." },
+            { icon: Sparkles, t: "Comfort", d: "Pushback seats, AC coaches, and premium interiors that make long journeys feel shorter." },
+            { icon: Heart, t: "Devotion", d: "We treat every pilgrimage as sacred — handled with the care and respect it deserves." },
+          ].map(({ icon: Icon, t, d }) => (
+            <div key={t} className="bg-card rounded-xl p-6 card-lift text-center">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-saffron/10 mx-auto">
+                <Icon className="h-7 w-7 text-saffron" />
+              </div>
+              <h3 className="mt-4 font-bold text-navy">{t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d}</p>
             </div>
           ))}
         </div>

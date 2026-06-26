@@ -53,12 +53,22 @@ function Packages() {
 
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-wrap gap-2 mb-8">
-          {tabs.map(t => (
-            <button key={t.id} onClick={() => setFilter(t.id)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold border transition ${filter===t.id ? "bg-navy text-navy-foreground border-navy" : "bg-card hover:border-saffron hover:text-saffron"}`}>
-              {t.label}
-            </button>
-          ))}
+          {tabs.map(t => {
+            const count = t.id === "all" ? PACKAGES.length : PACKAGES.filter(p => p.category === t.id).length;
+            return (
+              <button key={t.id} onClick={() => setFilter(t.id)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+                  filter === t.id
+                    ? "bg-navy text-navy-foreground border-navy scale-[1.04] shadow-md"
+                    : "bg-card hover:border-saffron hover:text-saffron hover:scale-[1.02]"
+                }`}>
+                {t.label}
+                {count > 0 && t.id !== "custom" && (
+                  <span className={`ml-1.5 text-[11px] font-bold opacity-70`}>({count})</span>
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {filter === "custom" ? (

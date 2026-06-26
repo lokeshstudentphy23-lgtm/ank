@@ -38,12 +38,6 @@ export const Route = createFileRoute("/")({
 });
 
 const featured = PACKAGES.filter(p => ["varanasi-mid","ayodhya","kathmandu"].includes(p.id));
-const circuits = [
-  { icon: Flame, name: "Kashi" },
-  { icon: Mountain, name: "Nepal" },
-  { icon: Landmark, name: "Buddhist Circuit" },
-  { icon: Sparkles, name: "Char Dham" },
-];
 
 function Home() {
   return (
@@ -56,26 +50,26 @@ function Home() {
         title={<>Sacred journeys,<br /><span className="text-gold">crafted with devotion.</span></>}
         subtitle="Pilgrimage, leisure, and group tours across India and Nepal — backed by 30+ years of experience, premium car rentals, and our own fleet of 30+ coaches."
       >
-        <Link to="/packages" className="rounded-full bg-gold text-gold-foreground px-7 py-3.5 text-sm font-semibold hover:brightness-105 shadow-xl shadow-black/30 transition">Explore Packages</Link>
-        <Link to="/plan-trip" className="rounded-full border border-white/50 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/15 transition">Plan Your Trip</Link>
+        <Link to="/packages" className="rounded-full bg-gold text-gold-foreground px-7 py-3.5 text-sm font-semibold hover:brightness-105 hover:scale-[1.03] hover:shadow-2xl hover:shadow-gold/40 shadow-xl shadow-black/30 transition-all duration-200">Explore Packages</Link>
+        <Link to="/plan-trip" className="rounded-full border border-white/50 bg-white/5 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/15 hover:scale-[1.02] transition-all duration-200">Plan Your Trip</Link>
       </Hero>
 
       <section className="bg-navy text-navy-foreground" aria-label="Trust indicators">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-0 text-center divide-x divide-white/10">
           {[
             { icon: Award, num: 30, suffix: "+", v: "Years Experience" },
             { icon: Bus,   num: 30, suffix: "+", v: "Owned Buses" },
             { icon: Users, num: 1000, suffix: "+", v: "Happy Travellers" },
             { icon: MapPin, label: "All India", v: "& Nepal Coverage" },
           ].map(({ icon: Icon, num, suffix, label, v }, i) => (
-            <Reveal key={v} delay={i * 80} className="flex flex-col items-center gap-1">
-              <Icon className="h-6 w-6 text-saffron" />
-              <div className="font-bold text-lg">
+            <Reveal key={v} delay={i * 80} className="flex flex-col items-center gap-2 py-4 md:py-0">
+              <Icon className="h-7 w-7 text-saffron" />
+              <div className="font-bold text-2xl">
                 {typeof num === "number"
                   ? <AnimatedCounter end={num} suffix={suffix} />
                   : label}
               </div>
-              <div className="text-xs opacity-80">{v}</div>
+              <div className="text-xs opacity-80 uppercase tracking-wider">{v}</div>
             </Reveal>
           ))}
         </div>
@@ -103,12 +97,20 @@ function Home() {
       <section className="bg-secondary/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <h2 className="text-2xl font-bold text-center">Pilgrimage Circuits</h2>
+          <p className="text-center text-muted-foreground mt-2 text-sm">Choose a circuit and we'll design your complete itinerary.</p>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {circuits.map(({ icon: Icon, name }) => (
-              <div key={name} className="bg-card rounded-lg p-6 text-center card-lift">
-                <Icon className="h-8 w-8 mx-auto text-saffron" />
+            {[
+              { icon: Flame, name: "Kashi", desc: "Kashi Vishwanath, Ganga Aarti & Ghat darshan in the city of Shiva.", filter: "pilgrimage" },
+              { icon: Mountain, name: "Nepal", desc: "Kathmandu, Pokhara, Pashupatinath & Muktinath circuits.", filter: "nepal" },
+              { icon: Landmark, name: "Buddhist Circuit", desc: "Sarnath, Bodh Gaya, Kushinagar & Lumbini — the path of the Buddha.", filter: "circuit" },
+              { icon: Sparkles, name: "Char Dham", desc: "Yamunotri, Gangotri, Kedarnath & Badrinath — the supreme yatra.", filter: "circuit" },
+            ].map(({ icon: Icon, name, desc }) => (
+              <Link key={name} to="/packages" className="bg-card rounded-lg p-6 text-center card-lift block group cursor-pointer">
+                <Icon className="h-8 w-8 mx-auto text-saffron transition-transform group-hover:scale-110 duration-200" />
                 <div className="mt-3 font-semibold text-navy">{name}</div>
-              </div>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <span className="mt-3 inline-block text-xs font-semibold text-saffron group-hover:underline">Explore →</span>
+              </Link>
             ))}
           </div>
         </div>
@@ -127,15 +129,21 @@ function Home() {
             { initials: "AK", name: "Anand Kulkarni", loc: "Pune", quote: "Booked the Nepal circuit for our parents. The Tempo Traveller was premium, drivers were respectful and the itinerary was beautifully paced." },
           ].map((t) => (
             <Reveal key={t.name}>
-              <article className="bg-card rounded-xl p-6 card-lift h-full">
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full placeholder-gradient flex items-center justify-center text-xs font-bold">{t.initials}</div>
+              <article className="bg-card rounded-xl p-6 card-lift h-full relative overflow-hidden">
+                {/* Decorative quote mark */}
+                <span className="absolute top-4 right-5 font-display text-7xl text-saffron/15 leading-none select-none" aria-hidden>"</span>
+                {/* Star rating */}
+                <div className="flex gap-0.5 text-gold mb-4" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map((_, i) => <span key={i} className="text-lg">★</span>)}
+                </div>
+                <p className="text-sm text-foreground/80 italic leading-relaxed relative z-10">"{t.quote}"</p>
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="h-11 w-11 rounded-full placeholder-gradient flex items-center justify-center text-xs font-bold shrink-0">{t.initials}</div>
                   <div>
-                    <div className="font-semibold text-navy">{t.name}</div>
+                    <div className="font-semibold text-navy text-sm">{t.name}</div>
                     <div className="text-xs text-muted-foreground">{t.loc}</div>
                   </div>
                 </div>
-                <p className="mt-4 text-sm text-foreground/80 italic leading-relaxed">"{t.quote}"</p>
               </article>
             </Reveal>
           ))}
@@ -156,7 +164,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary/30">
+      <section id="transport" className="bg-secondary/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="md:w-1/2">
@@ -176,22 +184,26 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+            <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-card rounded-xl p-5 border card-lift">
-                <h3 className="font-bold text-navy text-lg">Budget Rentals</h3>
-                <p className="text-sm text-muted-foreground mt-1">Affordable, reliable sedans for daily commutes and airport transfers.</p>
+                <h3 className="font-bold text-navy text-lg">Airport Transfers</h3>
+                <p className="text-sm text-muted-foreground mt-1">Reliable pickup and drop-off to and from the airport.</p>
               </div>
               <div className="bg-card rounded-xl p-5 border card-lift">
-                <h3 className="font-bold text-navy text-lg">Luxury Vehicles</h3>
-                <p className="text-sm text-muted-foreground mt-1">Premium SUVs and luxury cars for corporate events and weddings.</p>
+                <h3 className="font-bold text-navy text-lg">Local City Cabs</h3>
+                <p className="text-sm text-muted-foreground mt-1">Affordable sedans and SUVs for local sightseeing and daily commutes.</p>
               </div>
               <div className="bg-card rounded-xl p-5 border card-lift">
-                <h3 className="font-bold text-navy text-lg">Chauffeur Service</h3>
-                <p className="text-sm text-muted-foreground mt-1">Professional, verified drivers for outstation and local travel.</p>
+                <h3 className="font-bold text-navy text-lg">Outstation Trips</h3>
+                <p className="text-sm text-muted-foreground mt-1">Comfortable and safe rides for inter-city travel and family trips.</p>
               </div>
               <div className="bg-card rounded-xl p-5 border card-lift">
-                <h3 className="font-bold text-navy text-lg">Corporate Travel</h3>
-                <p className="text-sm text-muted-foreground mt-1">Dedicated vehicles tailored for business delegations.</p>
+                <h3 className="font-bold text-navy text-lg">Railway Pickups</h3>
+                <p className="text-sm text-muted-foreground mt-1">Punctual station transfers to your hotel or home.</p>
+              </div>
+              <div className="bg-card rounded-xl p-5 border card-lift sm:col-span-2">
+                <h3 className="font-bold text-navy text-lg">Chauffeur-driven Vehicles</h3>
+                <p className="text-sm text-muted-foreground mt-1">Professional, verified drivers ensuring a premium travel experience.</p>
               </div>
             </div>
           </div>

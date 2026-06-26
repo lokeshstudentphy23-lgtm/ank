@@ -1,3 +1,5 @@
+import React from "react";
+
 type Props = {
   image: string;
   imageAlt: string;
@@ -9,41 +11,170 @@ type Props = {
   align?: "left" | "center";
 };
 
-const heightMap = {
-  sm: "min-h-[320px] md:min-h-[380px]",
-  md: "min-h-[420px] md:min-h-[520px]",
-  lg: "min-h-[520px] md:min-h-[640px]",
+const heightMap: Record<string, { minHeight: string }> = {
+  sm: { minHeight: "clamp(280px, 38vw, 420px)" },
+  md: { minHeight: "clamp(380px, 48vw, 560px)" },
+  lg: { minHeight: "clamp(480px, 60vw, 700px)" },
 };
 
-export function Hero({ image, imageAlt, eyebrow, title, subtitle, children, height = "md", align = "left" }: Props) {
+export function Hero({
+  image,
+  imageAlt,
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  height = "md",
+  align = "left",
+}: Props) {
+  const minH = heightMap[height] ?? heightMap.md;
+
   return (
-    <section className={`relative overflow-hidden ${heightMap[height]} flex items-center`}>
+    <section
+      aria-label="Page hero"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        boxSizing: "border-box",
+        ...minH,
+      }}
+    >
+      {/* Background image */}
       <img
         src={image}
         alt={imageAlt}
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover ken-burns"
+        className="ken-burns"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+        }}
       />
-      <div className="absolute inset-0 hero-overlay" />
-      <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-16 text-navy-foreground">
-        <div className={`${align === "center" ? "mx-auto text-center" : ""} max-w-3xl`}>
+
+      {/* Dark gradient overlay */}
+      <div
+        className="hero-overlay"
+        style={{
+          position: "absolute",
+          inset: 0,
+          /* Fallback if hero-overlay CSS class doesn't apply */
+          background:
+            "linear-gradient(180deg, rgba(10,20,60,0.25) 0%, rgba(10,20,60,0.58) 55%, rgba(5,10,40,0.88) 100%), linear-gradient(90deg, rgba(10,20,60,0.72) 0%, rgba(10,20,60,0.0) 60%)",
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "64px 24px",
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "720px",
+            marginLeft: align === "center" ? "auto" : undefined,
+            marginRight: align === "center" ? "auto" : undefined,
+            textAlign: align === "center" ? "center" : "left",
+          }}
+        >
           {eyebrow && (
-            <div className="flex items-center gap-3">
-              <span className="h-px w-10 bg-gold/80" aria-hidden />
-              <p className="text-gold eyebrow">{eyebrow}</p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                marginBottom: "4px",
+                justifyContent: align === "center" ? "center" : "flex-start",
+              }}
+            >
+              {align !== "center" && (
+                <span
+                  aria-hidden
+                  style={{
+                    display: "block",
+                    height: "1px",
+                    width: "40px",
+                    background: "rgba(212,175,55,0.8)",
+                    flexShrink: 0,
+                  }}
+                />
+              )}
+              <p
+                className="eyebrow"
+                style={{
+                  color: "#d4af37",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  fontSize: "0.72rem",
+                  fontWeight: 600,
+                  margin: 0,
+                }}
+              >
+                {eyebrow}
+              </p>
             </div>
           )}
-          <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.02] text-white drop-shadow-md">
+
+          <h1
+            style={{
+              marginTop: "16px",
+              fontFamily: "Fraunces, Georgia, serif",
+              fontSize: "clamp(2rem, 5.5vw, 4.25rem)",
+              fontWeight: 700,
+              lineHeight: 1.04,
+              color: "#ffffff",
+              textShadow: "0 2px 16px rgba(0,0,0,0.4)",
+              marginBottom: 0,
+            }}
+          >
             {title}
           </h1>
+
           {subtitle && (
-            <p className="mt-6 text-base sm:text-lg leading-relaxed text-white/85 max-w-2xl font-light">
+            <p
+              style={{
+                marginTop: "24px",
+                fontSize: "clamp(0.95rem, 1.6vw, 1.125rem)",
+                lineHeight: 1.65,
+                color: "rgba(255,255,255,0.85)",
+                maxWidth: "600px",
+                fontWeight: 300,
+                marginLeft: align === "center" ? "auto" : undefined,
+                marginRight: align === "center" ? "auto" : undefined,
+              }}
+            >
               {subtitle}
             </p>
           )}
-          {children && <div className="mt-10 flex flex-wrap gap-3">{children}</div>}
+
+          {children && (
+            <div
+              style={{
+                marginTop: "40px",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "12px",
+                justifyContent: align === "center" ? "center" : "flex-start",
+              }}
+            >
+              {children}
+            </div>
+          )}
         </div>
       </div>
     </section>

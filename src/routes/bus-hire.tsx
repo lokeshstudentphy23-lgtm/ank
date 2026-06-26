@@ -67,10 +67,12 @@ function BusHire() {
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {fleet.map(f => (
             <article key={f.name} className="bg-card rounded-xl overflow-hidden card-lift">
-              <img src={f.img} alt={`${f.name} for hire from Varanasi for pilgrimage and group tours`} loading="lazy" className="aspect-[5/3] w-full object-cover" />
+              <div className="relative">
+                <img src={f.img} alt={`${f.name} for hire from Varanasi for pilgrimage and group tours`} loading="lazy" className="aspect-[5/3] w-full object-cover" />
+                <span className="absolute top-3 left-3 rounded-full bg-navy/90 backdrop-blur text-navy-foreground text-[11px] font-bold px-3 py-1 shadow">{f.seats}</span>
+              </div>
               <div className="p-5">
                 <h3 className="text-lg font-bold text-navy">{f.name}</h3>
-                <p className="text-sm text-muted-foreground">{f.seats}</p>
                 <ul className="mt-3 space-y-1 text-sm">
                   {f.lines.map(l => <li key={l}>• {l}</li>)}
                 </ul>
@@ -146,10 +148,14 @@ function BusHire() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <h2 className="text-3xl font-bold text-center">6-Step Booking Process</h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-            {steps.map((s,i) => (
-              <li key={s} className="bg-card rounded-xl p-5 text-center card-lift">
-                <div className="mx-auto h-10 w-10 rounded-full bg-saffron text-saffron-foreground flex items-center justify-center font-bold">{i+1}</div>
+            {steps.map((s, i) => (
+              <li key={s} className="relative bg-card rounded-xl p-5 text-center card-lift">
+                <div className="mx-auto h-10 w-10 rounded-full bg-saffron text-saffron-foreground flex items-center justify-center font-bold">{i + 1}</div>
                 <div className="mt-3 text-sm font-semibold">{s}</div>
+                {/* Desktop connector arrow */}
+                {i < steps.length - 1 && (
+                  <span className="hidden lg:block absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 text-saffron text-lg font-bold" aria-hidden>›</span>
+                )}
               </li>
             ))}
           </ol>

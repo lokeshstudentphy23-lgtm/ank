@@ -44,9 +44,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col" style={{ overflowX: "hidden", width: "100%" }}>
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1" style={{ overflowX: "hidden" }}>
           <Outlet />
         </main>
         <Footer />
