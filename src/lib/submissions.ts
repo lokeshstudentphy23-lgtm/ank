@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 export type ContactPayload = {
   name: string;
   email: string;
@@ -30,17 +28,31 @@ export type PackageRequestPayload = {
   message?: string | null;
 };
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
 export async function submitContactMessage(payload: ContactPayload) {
-  const { error } = await supabase.from("contact_messages").insert(payload);
-  if (error) throw new Error(error.message);
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!response.ok) throw new Error("Failed to send message");
 }
 
 export async function submitInquiry(payload: InquiryPayload) {
-  const { error } = await supabase.from("inquiries").insert(payload);
-  if (error) throw new Error(error.message);
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!response.ok) throw new Error("Failed to send inquiry");
 }
 
 export async function submitPackageRequest(payload: PackageRequestPayload) {
-  const { error } = await supabase.from("package_requests").insert(payload);
-  if (error) throw new Error(error.message);
+  const response = await fetch(FORMSPREE_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  if (!response.ok) throw new Error("Failed to send package request");
 }
