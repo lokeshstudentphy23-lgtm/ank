@@ -114,7 +114,7 @@ export function RouteShowcase() {
                     <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-gold font-semibold">
                       <MapPin className="h-3 w-3" aria-hidden /> {r.region}
                     </div>
-                    <h3 className="mt-1 font-display text-xl font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}>{r.name}</h3>
+                    <h3 className="mt-1 font-display text-xl font-bold !text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">{r.name}</h3>
                   </div>
                 </div>
                 <div className="p-4 flex flex-col flex-1">

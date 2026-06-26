@@ -45,7 +45,7 @@ export function PackageCard({ pkg }: { pkg: Pkg }) {
               <Info className="h-3 w-3" /> Details
             </span>
             <div className="absolute bottom-3 left-4 right-4 text-white">
-              <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">{pkg.name}</h3>
+              <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight !text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">{pkg.name}</h3>
               <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white font-medium [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]">
                 <span className="inline-flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{pkg.duration}</span>
                 <span className="inline-flex items-center gap-1"><IndianRupee className="h-3.5 w-3.5" />{pkg.price.replace("From ₹","").replace("From ","")}</span>
